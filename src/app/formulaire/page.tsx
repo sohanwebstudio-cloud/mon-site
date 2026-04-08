@@ -202,7 +202,7 @@ export default function Formulaire() {
   };
 
   const inputClass =
-    "w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors";
+    "w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-white transition-colors";
   const labelClass =
     "block text-xs font-bold uppercase tracking-widest text-zinc-200 mb-2";
 
