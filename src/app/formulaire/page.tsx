@@ -202,9 +202,9 @@ export default function Formulaire() {
   };
 
   const inputClass =
-    "w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-zinc-600 focus:outline-none focus:border-white transition-colors";
+    "w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-white transition-colors";
   const labelClass =
-    "block text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2";
+    "block text-xs font-bold uppercase tracking-widest text-zinc-200 mb-2";
 
   return (
     <div className="pt-32 pb-20 px-6 min-h-screen">
@@ -294,11 +294,11 @@ export default function Formulaire() {
                   Vos fichiers — Logo, charte & captures
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-500 mb-3">
+                  <p className="text-sm text-zinc-300 mb-3">
                     Mettez votre logo, charte graphique et captures de votre
                     site dans un dossier{" "}
-                    <strong className="text-zinc-300">Google Drive</strong> ou{" "}
-                    <strong className="text-zinc-300">WeTransfer</strong> et
+                    <strong className="text-white">Google Drive</strong> ou{" "}
+                    <strong className="text-white">WeTransfer</strong> et
                     collez le lien ici.
                   </p>
                   <input
@@ -363,7 +363,7 @@ export default function Formulaire() {
                   Lien vers vos references visuelles
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-500 mb-3">
+                  <p className="text-sm text-zinc-300 mb-3">
                     Logos, sites, captures Pinterest — partagez via Google Drive
                     ou WeTransfer
                   </p>
