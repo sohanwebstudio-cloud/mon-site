@@ -13,9 +13,11 @@ export default function StarryBackground() {
 
     let animationFrameId: number;
     let stars: { x: number; y: number; radius: number; vx: number; vy: number; alpha: number; dAlpha: number }[] = [];
+    
+    // NOUVEAU : Tableau pour stocker nos étoiles filantes (comètes)
+    let comets: { x: number; y: number; vx: number; vy: number; length: number; opacity: number }[] = [];
 
     const resize = () => {
-      // Fini le hack screen.height. On s'aligne sur la taille réelle.
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initStars();
@@ -38,10 +40,9 @@ export default function StarryBackground() {
     };
 
     const draw = () => {
-      // IMPORTANT : On efface l'ancienne image, on ne peint plus de fond plein.
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // On dessine uniquement les étoiles
+      // --- 1. GESTION DES ÉTOILES FIXES ---
       stars.forEach((star) => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -66,6 +67,54 @@ export default function StarryBackground() {
         if (star.y < 0) star.y = canvas.height;
         if (star.y > canvas.height) star.y = 0;
       });
+
+      // --- 2. GESTION DES ÉTOILES FILANTES ---
+      
+      // Spawn aléatoire : 0.5% de chance par frame d'en créer une. 
+      // J'ai mis "comets.length === 0" pour qu'il n'y en ait jamais plus d'une à la fois (effet rare et élégant).
+      if (Math.random() < 0.005 && comets.length === 0) {
+        comets.push({
+          x: Math.random() * canvas.width,       // Départ X aléatoire
+          y: Math.random() * (canvas.height / 3), // Départ Y toujours dans le tiers supérieur
+          vx: -4 - Math.random() * 4,            // Vitesse horizontale (vers la gauche)
+          vy: 4 + Math.random() * 4,             // Vitesse verticale (vers le bas)
+          length: 100 + Math.random() * 100,     // Longueur de la traînée
+          opacity: 1                             // Opacité initiale
+        });
+      }
+
+      // Dessin et animation des comètes
+      for (let i = comets.length - 1; i >= 0; i--) {
+        const comet = comets[i];
+        
+        // Calcul du bout de la queue de l'étoile filante (à l'opposé de la direction)
+        const tailX = comet.x - (comet.vx * comet.length) / 10;
+        const tailY = comet.y - (comet.vy * comet.length) / 10;
+
+        // Création de la traînée lumineuse (dégradé)
+        const gradient = ctx.createLinearGradient(comet.x, comet.y, tailX, tailY);
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${comet.opacity})`); // Tête lumineuse
+        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);                // Queue transparente
+
+        ctx.beginPath();
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 1.5;
+        ctx.moveTo(comet.x, comet.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.stroke();
+
+        // Fait avancer la comète
+        comet.x += comet.vx;
+        comet.y += comet.vy;
+        
+        // La comète s'estompe au bout d'un moment (burnout)
+        comet.opacity -= 0.012; 
+
+        // Nettoyage : si elle est totalement invisible ou sortie de l'écran, on la supprime
+        if (comet.opacity <= 0 || comet.y > canvas.height || comet.x < 0) {
+          comets.splice(i, 1);
+        }
+      }
 
       animationFrameId = requestAnimationFrame(draw);
     };
