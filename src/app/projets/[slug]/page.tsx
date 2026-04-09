@@ -375,7 +375,7 @@ export default function ProjetDetail({
               href={projet.siteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 px-8 py-4 border border-white/20 rounded-full text-sm uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300 block w-fit mx-auto lg:mx-auto text-center"
+              className="mt-10 px-[30px] py-5 border border-white rounded text-white font-medium uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 block w-fit mx-auto text-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

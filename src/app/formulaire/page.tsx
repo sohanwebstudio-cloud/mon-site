@@ -494,7 +494,7 @@ export default function Formulaire() {
               )}
               <button
                 type="button"
-                className="w-full bg-white text-black font-semibold rounded-lg px-4 py-4 hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-widest text-sm"
+                className="w-full border border-white rounded text-white font-medium uppercase tracking-widest px-[30px] py-5 hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={submit}
                 disabled={status === "sending"}
               >

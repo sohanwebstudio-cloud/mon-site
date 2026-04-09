@@ -38,7 +38,7 @@ export default function Contact() {
             <p className="text-zinc-400">Merci pour votre message. Je vous réponds sous 24h.</p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-8 px-8 py-3 border border-white/20 rounded-full text-sm uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all duration-300"
+              className="mt-8 px-[30px] py-5 border border-white rounded text-white font-medium uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
             >
               Envoyer un autre message
             </button>
@@ -66,7 +66,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="w-full bg-white text-black font-semibold rounded-lg px-4 py-4 hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border border-white rounded text-white font-medium uppercase tracking-widest px-[30px] py-5 hover:bg-white hover:text-black transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === "sending" ? "Envoi en cours..." : "Envoyer le message"}
             </button>
