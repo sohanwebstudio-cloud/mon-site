@@ -39,8 +39,10 @@ export default function Header() {
   return (
     <>
 <header
-  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-hidden ${
-    isScrolled ? "py-4 bg-black/50 backdrop-blur-md border-b border-white/10" : "py-6 bg-transparent"
+  className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-hidden border-b ${
+    isScrolled 
+      ? "py-4 bg-black/50 backdrop-blur-md border-white/10" 
+      : "py-6 bg-transparent border-transparent"
   }`}
 >
   {/* Hidden Cal.com trigger button */}
