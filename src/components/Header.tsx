@@ -112,11 +112,11 @@ export default function Header() {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden z-50 text-white ml-auto p-2"
+          className="lg:hidden relative z-[60] text-white ml-auto p-3 -mr-2"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle Menu"
         >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
       </div>
 
