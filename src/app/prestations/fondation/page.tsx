@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import React from "react";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -20,13 +22,6 @@ const staggerContainer: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-function PhotoPlaceholder({ className }: { className?: string }) {
-  return (
-    <div className={`rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center ${className ?? ""}`}>
-      <span className="text-zinc-700 text-xs uppercase tracking-widest font-medium">Photo</span>
-    </div>
-  );
-}
 
 const metadata = [
   { label: "Prix", value: "700€" },
@@ -48,21 +43,21 @@ const features = [
   "Livraison en 10 jours ouvrés",
 ];
 
-const sections = [
+const sections: { title: React.ReactNode; text: string }[] = [
   {
-    title: "Votre vitrine en ligne, conçue pour convaincre",
+    title: <>Votre vitrine en ligne, conçue pour <span className="bg-white text-black px-1">convaincre</span></>,
     text: "La formule Fondation a été pensée pour ceux qui veulent entrer dans l'ère digitale sans compromis sur la qualité. Trois pages sur mesure, c'est suffisant pour présenter votre activité avec autorité : une page d'accueil qui capte l'attention en moins de trois secondes, une page services qui détaille votre valeur ajoutée, et une page contact qui retire tout obstacle à la prise de contact.\n\nChaque page est conçue à la main, à partir de zéro. Aucun template générique, aucun raccourci visuel. Le design reflète votre univers, vos couleurs, votre ton — et uniquement les vôtres.",
   },
   {
-    title: "Un SEO technique soigné dès le premier jour",
+    title: <>Un SEO technique <span className="bg-white text-black px-1">soigné</span> dès le premier jour</>,
     text: "Être en ligne ne suffit pas : encore faut-il être trouvé. La formule Fondation intègre une configuration SEO technique complète — balises title et méta descriptions optimisées pour chaque page, sitemap XML soumis à Google Search Console, fichier robots.txt configuré, et performance technique vérifiée pour atteindre un score Lighthouse supérieur à 90.\n\nLa mise en conformité RGPD est également incluse : mentions légales rédigées et politique de confidentialité intégrée. Votre site est irréprochable sur le plan légal et technique dès le premier jour.",
   },
   {
-    title: "Vos contenus intégrés avec soin",
+    title: <>Vos contenus intégrés avec <span className="bg-white text-black px-1">soin</span></>,
     text: "Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est compressée et optimisée pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.\n\nLe formulaire de contact est relié à votre adresse email et testé avant livraison. Vous commencez à recevoir des demandes dès la mise en ligne, sans aucune configuration de votre part.",
   },
   {
-    title: "3 révisions par mois — votre site reste vivant",
+    title: <>3 révisions par mois — votre site reste <span className="bg-white text-black px-1">vivant</span></>,
     text: "Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois pendant 3 mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous 48h ouvrées, sans frais supplémentaires.\n\nCe suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — les premiers mois, quand les retours clients arrivent et que votre offre s'affine.",
   },
 ];
@@ -71,15 +66,15 @@ export default function Fondation() {
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative w-full h-[85vh] overflow-hidden">
-        <div className="w-full h-full bg-white/[0.02]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4">
+      <div className="relative w-full h-screen overflow-hidden">
+        <Image src="/la-fondation.png" alt="Fondation" fill className="object-cover z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505] z-10" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4 z-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-zinc-500 text-sm uppercase tracking-widest font-medium"
+            className="text-white text-sm uppercase tracking-widest font-medium"
           >
             Formule
           </motion.p>
@@ -95,7 +90,7 @@ export default function Fondation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-zinc-400 text-lg italic"
+            className="text-white text-lg italic"
           >
             &ldquo;Les bases solides pour exister en ligne avec classe.&rdquo;
           </motion.p>
@@ -113,7 +108,7 @@ export default function Fondation() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
           {metadata.map((item) => (
             <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-zinc-500">{item.label} :</span>
+              <span className="text-white/60">{item.label} :</span>
               <span className="text-white font-medium">{item.value}</span>
             </motion.div>
           ))}
@@ -134,7 +129,7 @@ export default function Fondation() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24">
           {features.map((feature, i) => (
             <motion.div key={i} variants={fadeInUp}>
-              <p className="py-4 text-xs uppercase tracking-widest text-zinc-300 font-medium">{feature}</p>
+              <p className="py-4 text-xs uppercase tracking-widest text-white font-medium">{feature}</p>
               <div className="h-px bg-white/10" />
             </motion.div>
           ))}
@@ -157,7 +152,7 @@ export default function Fondation() {
                 <h2 className="font-notable text-3xl md:text-4xl text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-zinc-400 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white/80 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>
@@ -168,7 +163,9 @@ export default function Fondation() {
                 viewport={{ once: true, margin: "-100px" }}
                 variants={isEven ? fadeInRight : fadeInLeft}
               >
-                <PhotoPlaceholder className="w-full aspect-[4/3]" />
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                  <Image src="/la-fondation.png" alt="Fondation" fill className="object-cover" />
+                </div>
               </motion.div>
             </div>
           </section>
@@ -183,7 +180,7 @@ export default function Fondation() {
         variants={fadeInUp}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
       >
-        <p className="text-zinc-500 text-sm uppercase tracking-widest mb-4">Prêt à démarrer ?</p>
+        <p className="text-white/60 text-sm uppercase tracking-widest mb-4">Prêt à démarrer ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">
           Lançons votre projet<br />Fondation.
         </h2>

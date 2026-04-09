@@ -41,7 +41,7 @@ export default function RootLayout({
         <StarryBackground />
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
-          <main className="flex-1 w-full max-w-[1600px] mx-auto">
+          <main className="flex-1 w-full">
             {children}
           </main>
           <Footer />

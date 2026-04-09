@@ -314,7 +314,7 @@ export default function ProjetDetail({
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative w-full h-[85vh] overflow-hidden">
+      <div className="relative w-full h-screen overflow-hidden">
         <motion.img
           src={projet.heroImage}
           alt={projet.title}

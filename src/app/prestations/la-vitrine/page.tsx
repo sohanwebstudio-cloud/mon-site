@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import React from "react";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -20,13 +22,6 @@ const staggerContainer: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-function PhotoPlaceholder({ className }: { className?: string }) {
-  return (
-    <div className={`rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center ${className ?? ""}`}>
-      <span className="text-zinc-700 text-xs uppercase tracking-widest font-medium">Photo</span>
-    </div>
-  );
-}
 
 const metadata = [
   { label: "Prix", value: "1 200€" },
@@ -48,25 +43,25 @@ const features = [
   "Livraison en 21 jours ouvrés",
 ];
 
-const sections = [
+const sections: { title: React.ReactNode; text: string }[] = [
   {
-    title: "Cinq pages pensées pour guider, captiver, convertir",
+    title: <>Cinq pages pensées pour guider, captiver, <span className="bg-white text-black px-1">convertir</span></>,
     text: "La Vitrine est construite autour d'un principe simple : chaque page a un rôle précis dans le parcours de votre visiteur. La page d'accueil accroche et qualifie. La page services convainc. La page portfolio ou témoignages rassure. La page À propos humanise. La page contact convertit.\n\nCette architecture éditoriale est définie avant même qu'une ligne de code soit écrite. Le résultat est un site où le visiteur est naturellement guidé vers l'action, sans friction, sans confusion — un parcours pensé comme une expérience, pas comme une suite de pages.",
   },
   {
-    title: "Des animations qui donnent vie à votre marque",
+    title: <>Des animations qui donnent <span className="bg-white text-black px-1">vie</span> à votre marque</>,
     text: "Sur La Vitrine, le design n'est pas statique : il respire. Les animations au scroll déclenchent des entrées fluides sur chaque section, les transitions hover ajoutent une couche d'interactivité subtile, et les passages de section sont orchestrés pour maintenir le rythme de lecture sans jamais distraire du contenu.\n\nChaque mouvement est une décision de design. Rien n'est ajouté par défaut : chaque animation sert la perception premium de votre marque, guide l'œil et renforce la crédibilité de votre présence en ligne. Un site qui bouge bien est un site dont on se souvient.",
   },
   {
-    title: "Un contenu vivant, géré pour vous",
+    title: <>Un contenu <span className="bg-white text-black px-1">vivant</span>, géré pour vous</>,
     text: "Votre site doit vivre avec votre activité. La Vitrine intègre un espace blog ou portfolio dont le contenu est géré par nos soins dans le cadre de votre plan de maintenance. Nouvelle étude de cas, nouvel article, nouvelle référence client : vous nous transmettez l'information, nous nous occupons de la publication avec un rendu soigné, cohérent à la charte graphique.\n\nPas de formation, pas de back-office à apprivoiser. Vous vous concentrez sur votre métier, on s'occupe du reste.",
   },
   {
-    title: "Des outils qui travaillent pour vous",
+    title: <>Des outils qui <span className="bg-white text-black px-1">travaillent</span> pour vous</>,
     text: "La Vitrine intègre les outils que vous utilisez déjà ou prévoyez d'adopter : Calendly pour la prise de rendez-vous directement sur votre site, Mailchimp ou Brevo pour capturer des emails et nourrir votre audience, Google Analytics pour piloter vos performances, et la configuration Open Graph pour des aperçus impeccables sur les réseaux sociaux.\n\nChaque intégration est testée et validée avant la livraison. Vous récupérez un écosystème digital cohérent et opérationnel — pas une simple vitrine isolée de vos outils métier.",
   },
   {
-    title: "5 révisions mensuelles — un site qui évolue avec vous",
+    title: <>5 révisions mensuelles — un site qui <span className="bg-white text-black px-1">évolue</span> avec vous</>,
     text: "Après la livraison, vous disposez de 5 demandes de modifications par mois pendant 3 mois. Mise à jour de vos tarifs, ajout d'un nouveau service, retouche d'un visuel, modification d'un texte de vente : chaque demande est traitée sous 48h ouvrées, sans frais supplémentaires.\n\nCe suivi n'est pas un service après-vente générique. C'est une relation de travail continue qui vous permet de faire évoluer votre site au même rythme que votre activité — les premiers mois étant souvent les plus riches en apprentissages sur ce qui convertit vraiment.",
   },
 ];
@@ -75,15 +70,15 @@ export default function LaVitrine() {
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative w-full h-[85vh] overflow-hidden">
-        <div className="w-full h-full bg-white/[0.02]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4">
+      <div className="relative w-full h-screen overflow-hidden">
+        <Image src="/vitrine.png" alt="La Vitrine" fill className="object-cover z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505] z-10" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4 z-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-zinc-500 text-sm uppercase tracking-widest font-medium"
+            className="text-white text-sm uppercase tracking-widest font-medium"
           >
             Formule
           </motion.p>
@@ -99,7 +94,7 @@ export default function LaVitrine() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-zinc-400 text-lg italic"
+            className="text-white text-lg italic"
           >
             &ldquo;Une expérience immersive conçue pour captiver et convertir.&rdquo;
           </motion.p>
@@ -117,7 +112,7 @@ export default function LaVitrine() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
           {metadata.map((item) => (
             <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-zinc-500">{item.label} :</span>
+              <span className="text-white/60">{item.label} :</span>
               <span className="text-white font-medium">{item.value}</span>
             </motion.div>
           ))}
@@ -138,7 +133,7 @@ export default function LaVitrine() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24">
           {features.map((feature, i) => (
             <motion.div key={i} variants={fadeInUp}>
-              <p className="py-4 text-xs uppercase tracking-widest text-zinc-300 font-medium">{feature}</p>
+              <p className="py-4 text-xs uppercase tracking-widest text-white font-medium">{feature}</p>
               <div className="h-px bg-white/10" />
             </motion.div>
           ))}
@@ -161,7 +156,7 @@ export default function LaVitrine() {
                 <h2 className="font-notable text-3xl md:text-4xl text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-zinc-400 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white/80 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>
@@ -172,7 +167,9 @@ export default function LaVitrine() {
                 viewport={{ once: true, margin: "-100px" }}
                 variants={isEven ? fadeInRight : fadeInLeft}
               >
-                <PhotoPlaceholder className="w-full aspect-[4/3]" />
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                  <Image src="/vitrine.png" alt="La Vitrine" fill className="object-cover" />
+                </div>
               </motion.div>
             </div>
           </section>
@@ -187,7 +184,7 @@ export default function LaVitrine() {
         variants={fadeInUp}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
       >
-        <p className="text-zinc-500 text-sm uppercase tracking-widest mb-4">Prêt à passer au niveau supérieur ?</p>
+        <p className="text-white/60 text-sm uppercase tracking-widest mb-4">Prêt à passer au niveau supérieur ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">
           Lançons votre projet<br />La Vitrine.
         </h2>

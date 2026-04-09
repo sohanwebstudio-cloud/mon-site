@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import React from "react";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -20,13 +22,6 @@ const staggerContainer: Variants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-function PhotoPlaceholder({ className }: { className?: string }) {
-  return (
-    <div className={`rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center ${className ?? ""}`}>
-      <span className="text-zinc-700 text-xs uppercase tracking-widest font-medium">Photo</span>
-    </div>
-  );
-}
 
 const metadata = [
   { label: "Prix", value: "Sur devis" },
@@ -48,21 +43,21 @@ const features = [
   "Support prioritaire 30 jours post-livraison",
 ];
 
-const sections = [
+const sections: { title: React.ReactNode; text: string }[] = [
   {
-    title: "Une architecture construite autour de vos objectifs",
+    title: <>Une architecture construite autour de vos <span className="bg-white text-black px-1">objectifs</span></>,
     text: "La formule Sur Mesure commence là où les templates s'arrêtent. E-commerce avec gestion d'inventaire avancée, extranet client avec authentification, connexion à votre CRM ou ERP existant, plateforme de réservation automatisée, SaaS avec gestion d'abonnements : chaque projet démarre d'une analyse approfondie de vos besoins business, pas d'un thème prêt à l'emploi qu'on tente d'adapter.\n\nL'architecture technique est définie en amont, documentée et validée ensemble avant que le moindre composant ne soit développé. Vous savez exactement ce qui est construit, pourquoi, et comment cela s'inscrit dans votre stratégie globale.",
   },
   {
-    title: "Une direction artistique pilotée ensemble",
+    title: <>Une direction artistique <span className="bg-white text-black px-1">pilotée</span> ensemble</>,
     text: "Avant d'écrire une ligne de code, nous validons ensemble un moodboard complet : palettes chromatiques, typographies, références visuelles, directions de mise en page. Vous recevez ensuite un système de design complet sur Figma — design tokens, bibliothèque de composants, états responsive — qui sert de référence unique pour l'ensemble du projet.\n\nCe processus garantit qu'il n'y a pas de surprise à la livraison. Chaque décision visuelle a été validée en amont, en collaboration. Le résultat est un site qui ne ressemble à aucun autre parce qu'il a été conçu pour vous, et uniquement pour vous.",
   },
   {
-    title: "Des intégrations sans limite",
+    title: <>Des intégrations <span className="bg-white text-black px-1">sans limite</span></>,
     text: "Paiement Stripe avec gestion des abonnements, CRM HubSpot ou Pipedrive, base de données Airtable ou Notion, automatisations Zapier ou Make, recherche Algolia, email transactionnel SendGrid, authentification sécurisée : dans la formule Sur Mesure, chaque besoin d'intégration trouve sa solution.\n\nNous ne rognons pas les angles pour rentrer dans un cadre prédéfini. Nous construisons l'infrastructure dont votre business a besoin aujourd'hui, avec une vision claire sur la scalabilité de demain. Chaque choix technique est documenté et transmis à la livraison.",
   },
   {
-    title: "Un partenariat qui dure au-delà de la livraison",
+    title: <>Un partenariat qui <span className="bg-white text-black px-1">dure</span> au-delà de la livraison</>,
     text: "30 jours de support prioritaire post-livraison, c'est un véritable partenaire opérationnel pendant la période critique du lancement. Un bug corrigé sous 2 heures, un ajustement de dernière minute, une question de performance : vous avez une ligne directe. Les demandes ne passent pas par un système de tickets — elles arrivent directement et sont traitées en priorité absolue.\n\nAu-delà de cette période, nous définissons ensemble un accord de maintenance et d'évolution adapté à l'activité de votre projet. Parce qu'un grand site n'est pas une prestation ponctuelle — c'est un investissement continu qui mérite un accompagnement à la hauteur.",
   },
 ];
@@ -71,15 +66,15 @@ export default function SurMesure() {
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative w-full h-[85vh] overflow-hidden">
-        <div className="w-full h-full bg-white/[0.02]" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505]" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4">
+      <div className="relative w-full h-screen overflow-hidden">
+        <Image src="/sur-mesure.jpg" alt="Sur Mesure" fill className="object-cover z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505] z-10" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4 z-20">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-zinc-500 text-sm uppercase tracking-widest font-medium"
+            className="text-white text-sm uppercase tracking-widest font-medium"
           >
             Formule
           </motion.p>
@@ -95,7 +90,7 @@ export default function SurMesure() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-zinc-400 text-lg italic"
+            className="text-white text-lg italic"
           >
             &ldquo;Un outil digital unique, construit autour de vos objectifs business.&rdquo;
           </motion.p>
@@ -113,7 +108,7 @@ export default function SurMesure() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
           {metadata.map((item) => (
             <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-zinc-500">{item.label} :</span>
+              <span className="text-white/60">{item.label} :</span>
               <span className="text-white font-medium">{item.value}</span>
             </motion.div>
           ))}
@@ -134,7 +129,7 @@ export default function SurMesure() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24">
           {features.map((feature, i) => (
             <motion.div key={i} variants={fadeInUp}>
-              <p className="py-4 text-xs uppercase tracking-widest text-zinc-300 font-medium">{feature}</p>
+              <p className="py-4 text-xs uppercase tracking-widest text-white font-medium">{feature}</p>
               <div className="h-px bg-white/10" />
             </motion.div>
           ))}
@@ -157,7 +152,7 @@ export default function SurMesure() {
                 <h2 className="font-notable text-3xl md:text-4xl text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-zinc-400 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white/80 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>
@@ -168,7 +163,9 @@ export default function SurMesure() {
                 viewport={{ once: true, margin: "-100px" }}
                 variants={isEven ? fadeInRight : fadeInLeft}
               >
-                <PhotoPlaceholder className="w-full aspect-[4/3]" />
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                  <Image src="/sur-mesure.jpg" alt="Sur Mesure" fill className="object-cover" />
+                </div>
               </motion.div>
             </div>
           </section>
@@ -183,7 +180,7 @@ export default function SurMesure() {
         variants={fadeInUp}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
       >
-        <p className="text-zinc-500 text-sm uppercase tracking-widest mb-4">Un projet ambitieux ?</p>
+        <p className="text-white/60 text-sm uppercase tracking-widest mb-4">Un projet ambitieux ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">
           Parlons de votre<br />projet sur mesure.
         </h2>
