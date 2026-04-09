@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
-import { Menu, X, ChevronDown, CalendarDays, Mail } from "lucide-react";
+import { ChevronDown, CalendarDays, Mail } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,50 +110,79 @@ export default function Header() {
                 )}
               </div>
 
-            {/* Mobile Toggle */}
+            {/* Mobile Toggle — 3 barres blanches */}
             <button
-              className="lg:hidden relative z-[60] flex items-center justify-center text-white p-3 -mr-2 bg-white/5 rounded-full border border-white/10"
+              className="lg:hidden relative z-[60] flex flex-col gap-[5px] items-center justify-center p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              <span className={`block w-6 h-[2px] bg-white transition-all duration-300 origin-center ${mobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+              <span className={`block w-6 h-[2px] bg-white transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-[2px] bg-white transition-all duration-300 origin-center ${mobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Menu — sibling du header, pas enfant, pour éviter le containing block CSS transform */}
+      {/* Mobile Menu */}
       <motion.div
-        className="fixed inset-0 bg-black/40 backdrop-blur-xl z-40 flex flex-col justify-center items-center gap-8 lg:hidden"
+        className="fixed inset-0 bg-[#050505] z-40 flex flex-col pt-24 lg:hidden overflow-hidden"
         initial={{ opacity: 0, y: "-100%" }}
         animate={{ opacity: mobileMenuOpen ? 1 : 0, y: mobileMenuOpen ? 0 : "-100%" }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         style={{ pointerEvents: mobileMenuOpen ? "auto" : "none" }}
       >
-        <Link href="/projets" className="text-2xl font-medium text-zinc-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-          Projets
-        </Link>
-        <Link href="/a-propos" className="text-2xl font-medium text-zinc-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-          À propos
-        </Link>
-        <Link href="/prestations" className="text-2xl font-medium text-zinc-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-          Les prestations
-        </Link>
-        <button
-          onClick={() => { setMobileMenuOpen(false); openCal(); }}
-          className="flex items-center gap-3 text-xl text-zinc-300 hover:text-white font-medium"
-        >
-          <CalendarDays size={18} />
-          Réserver un appel
-        </button>
-        <Link
-          href="/contact"
-          onClick={() => setMobileMenuOpen(false)}
-          className="flex items-center gap-3 text-xl text-zinc-300 hover:text-white font-medium"
-        >
-          <Mail size={18} />
-          Envoyer un message
-        </Link>
+        {/* Nav links */}
+        <nav className="flex flex-col px-6">
+          <Link
+            href="/projets"
+            className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Projets
+          </Link>
+          <Link
+            href="/a-propos"
+            className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            À propos
+          </Link>
+          <Link
+            href="/prestations"
+            className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Les prestations
+          </Link>
+          <Link
+            href="/contact"
+            className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+        </nav>
+
+        {/* CTAs — même design que le dropdown desktop */}
+        <div className="mx-6 mt-8 border border-white/15 rounded overflow-hidden">
+          <button
+            onClick={() => { setMobileMenuOpen(false); openCal(); }}
+            className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer"
+          >
+            <CalendarDays size={15} className="text-zinc-400 shrink-0" />
+            Réserver un appel
+          </button>
+          <div className="h-px bg-white/10" />
+          <Link
+            href="/contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
+          >
+            <Mail size={15} className="text-zinc-400 shrink-0" />
+            Envoyer un message
+          </Link>
+        </div>
       </motion.div>
     </>
   );
