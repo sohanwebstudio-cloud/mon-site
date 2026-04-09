@@ -38,13 +38,10 @@ export default function Header() {
 
   return (
     <>
-      <motion.header
+      <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "py-4 bg-black/50 backdrop-blur-md border-b border-white/10" : "py-6 bg-transparent"
         }`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Hidden Cal.com trigger button */}
         <button
@@ -123,7 +120,7 @@ export default function Header() {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu — sibling du header, pas enfant, pour éviter le containing block CSS transform */}
       <motion.div

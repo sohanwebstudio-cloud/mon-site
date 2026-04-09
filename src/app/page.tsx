@@ -74,11 +74,11 @@ export default function Home() {
             Agence de communication digitale basée à Vannes
           </motion.div>
           
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="font-notable text-5xl md:text-7xl font-bold tracking-wide text-white mb-6 max-w-4xl leading-tight"
+            className="font-notable text-4xl sm:text-5xl md:text-7xl font-bold tracking-normal text-white mb-6 max-w-4xl leading-tight"
           >
             Transformez vos simples visiteurs en <span className="text-zinc-500 italic">clients fidèles.</span>
           </motion.h1>
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen overflow-hidden">
+      <section className="w-full overflow-hidden">
         <div className="relative w-full overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-black via-black/90 to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-black via-black/90 to-transparent z-10" />

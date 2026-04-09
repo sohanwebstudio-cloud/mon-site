@@ -15,8 +15,9 @@ export default function StarryBackground() {
     let stars: { x: number; y: number; radius: number; vx: number; vy: number; alpha: number; dAlpha: number }[] = [];
 
     const resize = () => {
+      // Utilise screen.height pour couvrir le viewport même quand les toolbars iOS Safari se cachent
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = Math.max(window.innerHeight, window.screen?.height ?? window.innerHeight);
       initStars();
     };
 
