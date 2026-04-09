@@ -28,28 +28,20 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-// UX CRITIQUE : Verrouillage absolu du scroll (Anti-bug Safari iOS)
+  // UX CRITIQUE : Verrouillage absolu du scroll (Anti-bug Safari iOS)
   useEffect(() => {
     if (mobileMenuOpen) {
-      // 1. On mémorise la position exacte du scroll actuel
       const currentScrollY = window.scrollY;
-      
-      // 2. On fige la page exactement à cet endroit
       document.body.style.position = "fixed";
       document.body.style.top = `-${currentScrollY}px`;
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
     } else {
-      // 1. On récupère la valeur du scroll sauvegardée
       const scrollY = document.body.style.top;
-      
-      // 2. On nettoie les styles de blocage
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
-      
-      // 3. On replace l'utilisateur silencieusement là où il était
       window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
   }, [mobileMenuOpen]);
@@ -80,19 +72,31 @@ export default function Header() {
         />
 
         <div className="w-full px-4 md:px-12 flex items-center justify-between">
-          {/* Logo : Taille augmentée (w-[170px]) et alignement forcé (flex items-center) */}
-          <Link href="/" className="relative z-50 shrink-0 w-[170px] sm:w-[220px] lg:w-auto flex items-center">
+          
+          {/* Logo : Hitbox géante sur mobile (flex-1) et action intelligente */}
+          <Link 
+            href="/" 
+            onClick={(e) => {
+              setMobileMenuOpen(false);
+              if (window.location.pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="relative z-50 flex-1 lg:flex-none flex items-center py-2 cursor-pointer"
+          >
             <Image 
               src="/logo.png" 
               alt="Sohan Web Studio Logo" 
               width={340} 
               height={72} 
-              className="object-contain w-full h-auto lg:h-5" 
+              className="object-contain w-[170px] sm:w-[220px] lg:w-auto lg:h-5" 
               priority 
             />
           </Link>
 
-          <div className="flex items-center justify-end ml-auto gap-4 md:gap-8">
+          {/* Right side: Navigation & Mobile Toggle - shrink-0 pour protéger l'espace */}
+          <div className="flex items-center justify-end shrink-0 gap-4 md:gap-8">
             <nav className="hidden lg:flex items-center gap-10 text-sm font-medium text-white/70">
               <Link href="/projets" className="hover:text-white transition-colors duration-200">Projets</Link>
               <Link href="/a-propos" className="hover:text-white transition-colors duration-200">À propos</Link>
@@ -100,7 +104,38 @@ export default function Header() {
             </nav>
 
             <div ref={dropdownRef} className="relative hidden lg:block min-w-[200px]">
-              {/* Le dropdown desktop est ici... */}
+              <button
+                onClick={() => setDropdownOpen((v) => !v)}
+                className="flex items-center justify-between gap-6 px-6 py-4 bg-white text-black font-medium rounded uppercase tracking-widest hover:bg-zinc-200 transition-all duration-300 cursor-pointer w-full text-xs"
+              >
+                <span>LANCER MON PROJET</span>
+                <ChevronDown
+                  size={14}
+                  strokeWidth={2}
+                  className={`transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+
+              {dropdownOpen && (
+                <div className="absolute top-full right-0 mt-2 w-full bg-black border border-white/15 rounded overflow-hidden shadow-2xl">
+                  <button
+                    onClick={openCal}
+                    className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
+                  >
+                    <CalendarDays size={15} className="text-zinc-400 shrink-0" />
+                    Réserver un appel
+                  </button>
+                  <div className="h-px bg-white/10" />
+                  <Link
+                    href="/contact"
+                    onClick={() => setDropdownOpen(false)}
+                    className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
+                  >
+                    <Mail size={15} className="text-zinc-400 shrink-0" />
+                    Envoyer un message
+                  </Link>
+                </div>
+              )}
             </div>
 
             <button
@@ -151,7 +186,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* L'image ajoutée en bas de l'overlay */}
+        {/* Logo de fond en bas de l'overlay */}
         <div className="mt-auto flex justify-center pb-12 px-6">
           <Image 
             src="/logo.png" 
