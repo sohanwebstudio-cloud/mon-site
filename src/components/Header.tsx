@@ -57,7 +57,7 @@ export default function Header() {
       <div className="w-full px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="relative z-50 shrink-0">
-          <Image src="/logo.png" alt="Sohan Web Studio Logo" width={340} height={72} className="object-contain h-10 lg:h-5 w-auto" priority />
+          <Image src="/logo.png" alt="Sohan Web Studio Logo" width={340} height={72} className="object-contain w-[40%] h-auto lg:w-auto lg:h-5" priority />
         </Link>
 
         {/* Desktop Navigation */}
