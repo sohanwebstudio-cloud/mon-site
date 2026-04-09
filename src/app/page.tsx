@@ -98,15 +98,15 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Link 
-              href="/contact" 
-              className="px-8 py-4 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2"
+            <Link
+              href="/contact"
+              className="px-[30px] py-5 bg-white text-black font-medium rounded uppercase tracking-widest hover:bg-zinc-200 transition-all duration-300 flex items-center justify-center gap-2"
             >
               Lancer mon projet <ArrowRight size={18} />
             </Link>
-            <Link 
-              href="/projets" 
-              className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-colors duration-300 flex items-center justify-center"
+            <Link
+              href="/projets"
+              className="px-[30px] py-5 border border-white text-white font-medium rounded uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center"
             >
               Explorer les sites web
             </Link>
@@ -114,10 +114,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen pb-8 md:pb-12 overflow-hidden">
+      <section className="relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw] w-screen overflow-hidden">
         <div className="relative w-full overflow-hidden">
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-black via-black/90 to-transparent z-10" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-black via-black/90 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-black via-black/90 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-black via-black/90 to-transparent z-10" />
 
           <motion.div
             style={{ x: iconBandSmoothX }}
@@ -161,9 +161,9 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-3 gap-12"
           >
             {[
-              { title: "Rapide", desc: "Je m&apos;engage à fournir des résultats rapides, sans jamais sacrifier la qualité." },
+              { title: "Rapide", desc: "Je m'engage à fournir des résultats rapides, sans jamais sacrifier la qualité." },
               { title: "Sur-mesure", desc: "Je crée des designs uniques pour garantir que votre marque se démarque de la concurrence." },
-              { title: "Efficace", desc: "Je veille à ce que votre site soit esthétique, mais surtout qu&apos;il apporte des résultats concrets à votre entreprise." }
+              { title: "Efficace", desc: "Je veille à ce que votre site soit esthétique, mais surtout qu'il apporte des résultats concrets à votre entreprise." }
             ].map((feature, i) => (
               <motion.div key={i} variants={fadeInUp} className="flex flex-col">
                 <h3 className="font-notable text-2xl font-medium text-white mb-4">{feature.title}</h3>
@@ -195,9 +195,9 @@ export default function Home() {
             
             {[
               { num: "01", title: "Stratégie", desc: "On analyse vos besoins, votre cible et on définit une direction artistique sur-mesure.", deliverable: "Moodboard et stratégie validés." },
-              { num: "02", title: "Conception", desc: "Conception de l&apos;interface visuelle. Nous validons ensemble l&apos;ergonomie et l&apos;esthétique avant toute phase technique.", deliverable: "Maquette interactive haute fidélité." },
-              { num: "03", title: "Développement", desc: "Développement complet sur Framer/Next.js. Intégration au pixel près, animations fluides et optimisation.", deliverable: "Site web fonctionnel et testé." },
-              { num: "04", title: "Livraison", desc: "Mise en production de votre site. Je vous remets les clés et vous forme en visio pour garantir votre totale autonomie.", deliverable: "Site en ligne + Enregistrement de la formation." }
+              { num: "02", title: "Conception", desc: "Conception de l'interface visuelle. Nous validons ensemble l'ergonomie et l'esthétique avant toute phase technique.", deliverable: "Maquette interactive haute fidélité." },
+              { num: "03", title: "Développement", desc: "Développement complet en Next.js, React et Framer Motion. Intégration au pixel près, animations fluides et optimisation des performances.", deliverable: "Site web fonctionnel et testé." },
+              { num: "04", title: "Livraison", desc: "Mise en production et suivi inclus — je reste votre interlocuteur direct pour toutes les évolutions et mises à jour post-lancement.", deliverable: "Site en ligne + rapport de mise en production." }
             ].map((step, i) => (
               <motion.div 
                 key={i}
@@ -259,11 +259,11 @@ export default function Home() {
           <h2 className="font-notable text-4xl md:text-6xl font-bold text-white mb-10 leading-tight">
             Votre entreprise <span className="italic text-zinc-400">mérite</span> un site à la hauteur.
           </h2>
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-black text-lg font-bold rounded-full hover:scale-105 transition-transform duration-300"
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-[30px] py-5 border border-white text-white font-medium rounded uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
           >
-            Lancer mon projet <ArrowRight size={20} />
+            Lancer mon projet <ArrowRight size={18} />
           </Link>
         </motion.div>
       </section>

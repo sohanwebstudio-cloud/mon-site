@@ -3,17 +3,38 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Menu, X, ChevronDown, CalendarDays, Mail } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 50);
   });
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  function openCal() {
+    setDropdownOpen(false);
+    // @ts-expect-error Cal is injected by script
+    if (typeof window !== "undefined" && window.Cal) window.Cal("ui", { styles: { branding: { brandColor: "#ffffff" } }, hideEventTypeDetails: false });
+    // Trigger via attribute — find and click the hidden cal button
+    const calBtn = document.getElementById("cal-trigger");
+    calBtn?.click();
+  }
 
   return (
     <motion.header
@@ -24,14 +45,23 @@ export default function Header() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      {/* Hidden Cal.com trigger button */}
+      <button
+        id="cal-trigger"
+        data-cal-link="sohanwebstudio-cloud/30min"
+        data-cal-origin="https://cal.com"
+        className="sr-only"
+        aria-hidden
+      />
+
+      <div className="w-full px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative z-50">
-          <Image src="/logo.png" alt="Sohan Web Studio Logo" width={280} height={60} className="object-contain" priority />
+        <Link href="/" className="relative z-50 shrink-0">
+          <Image src="/logo.png" alt="Sohan Web Studio Logo" width={340} height={72} className="object-contain h-10 w-auto" priority />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-zinc-400">
+        <nav className="hidden lg:flex flex-1 items-center justify-start gap-10 ml-12 text-sm font-medium text-zinc-400">
           <Link href="/projets" className="hover:text-white transition-colors duration-200">
             Projets
           </Link>
@@ -41,12 +71,44 @@ export default function Header() {
           <Link href="/prestations" className="hover:text-white transition-colors duration-200">
             Les prestations
           </Link>
-          
-          <Link href="/contact" className="relative group overflow-hidden rounded-full bg-white text-black px-6 py-2.5 ml-4 font-semibold">
-            <span className="relative z-10">LANCER MON PROJET</span>
-            <div className="absolute inset-0 bg-neutral-200 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-          </Link>
         </nav>
+
+        {/* CTA with dropdown — desktop only */}
+        <div ref={dropdownRef} className="relative hidden lg:block">
+            <button
+              onClick={() => setDropdownOpen((v) => !v)}
+              className="flex items-center justify-between gap-6 px-[30px] py-5 bg-white text-black font-medium rounded uppercase tracking-widest hover:bg-zinc-200 transition-all duration-300 cursor-pointer w-full"
+            >
+              <span>LANCER MON PROJET</span>
+              <ChevronDown
+                size={14}
+                strokeWidth={2}
+                className={`transition-transform duration-300 ${dropdownOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+
+            {/* Dropdown */}
+            {dropdownOpen && (
+              <div className="absolute top-full right-0 mt-2 w-full bg-black border border-white/15 rounded overflow-hidden shadow-2xl">
+                <button
+                  onClick={openCal}
+                  className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
+                >
+                  <CalendarDays size={15} className="text-zinc-400 shrink-0" />
+                  Réserver un appel
+                </button>
+                <div className="h-px bg-white/10" />
+                <Link
+                  href="/contact"
+                  onClick={() => setDropdownOpen(false)}
+                  className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
+                >
+                  <Mail size={15} className="text-zinc-400 shrink-0" />
+                  Envoyer un message
+                </Link>
+              </div>
+            )}
+          </div>
 
         {/* Mobile Toggle */}
         <button
@@ -75,8 +137,20 @@ export default function Header() {
         <Link href="/prestations" className="text-2xl font-medium text-zinc-300 hover:text-white" onClick={() => setMobileMenuOpen(false)}>
           Les prestations
         </Link>
-        <Link href="/contact" className="mt-4 rounded-full bg-white text-black px-8 py-3 text-lg font-semibold" onClick={() => setMobileMenuOpen(false)}>
-          LANCER MON PROJET
+        <button
+          onClick={() => { setMobileMenuOpen(false); openCal(); }}
+          className="flex items-center gap-3 text-xl text-zinc-300 hover:text-white font-medium"
+        >
+          <CalendarDays size={18} />
+          Réserver un appel
+        </button>
+        <Link
+          href="/contact"
+          onClick={() => setMobileMenuOpen(false)}
+          className="flex items-center gap-3 text-xl text-zinc-300 hover:text-white font-medium"
+        >
+          <Mail size={18} />
+          Envoyer un message
         </Link>
       </motion.div>
     </motion.header>
