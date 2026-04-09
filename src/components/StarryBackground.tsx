@@ -13,11 +13,17 @@ export default function StarryBackground() {
 
     let animationFrameId: number;
     let stars: { x: number; y: number; radius: number; vx: number; vy: number; alpha: number; dAlpha: number }[] = [];
-    
-    // NOUVEAU : Tableau pour stocker nos étoiles filantes (comètes)
     let comets: { x: number; y: number; vx: number; vy: number; length: number; opacity: number }[] = [];
+    
+    // On sauvegarde la largeur initiale pour contrer le bug Safari
+    let lastWidth = window.innerWidth;
 
     const resize = () => {
+      // LE FIX DE STABILITÉ : On ignore les changements de hauteur (causés par le scroll Safari). 
+      // On ne redessine tout que si l'utilisateur tourne son téléphone (changement de largeur).
+      if (window.innerWidth === lastWidth && stars.length > 0) return;
+      lastWidth = window.innerWidth;
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       initStars();
@@ -70,31 +76,31 @@ export default function StarryBackground() {
 
       // --- 2. GESTION DES ÉTOILES FILANTES ---
       
-      // Spawn aléatoire : 0.5% de chance par frame d'en créer une. 
-      // J'ai mis "comets.length === 0" pour qu'il n'y en ait jamais plus d'une à la fois (effet rare et élégant).
-      if (Math.random() < 0.005 && comets.length === 0) {
+      // RARETÉ : Divisée par 3 (0.0015 au lieu de 0.005). Apparaît en moyenne toutes les 10-15 sec.
+      if (Math.random() < 0.0015 && comets.length === 0) {
+        // ALÉATOIRE : Une chance sur deux d'aller vers la droite (1) ou vers la gauche (-1)
+        const directionX = Math.random() > 0.5 ? 1 : -1;
+        
         comets.push({
-          x: Math.random() * canvas.width,       // Départ X aléatoire
-          y: Math.random() * (canvas.height / 3), // Départ Y toujours dans le tiers supérieur
-          vx: -4 - Math.random() * 4,            // Vitesse horizontale (vers la gauche)
-          vy: 4 + Math.random() * 4,             // Vitesse verticale (vers le bas)
-          length: 100 + Math.random() * 100,     // Longueur de la traînée
-          opacity: 1                             // Opacité initiale
+          x: Math.random() * canvas.width,
+          y: Math.random() * (canvas.height / 3),
+          // ALÉATOIRE : La vitesse X et Y varie grandement pour changer l'angle de chute
+          vx: directionX * (2 + Math.random() * 6), 
+          vy: 2 + Math.random() * 5, 
+          length: 80 + Math.random() * 100, 
+          opacity: 1
         });
       }
 
-      // Dessin et animation des comètes
       for (let i = comets.length - 1; i >= 0; i--) {
         const comet = comets[i];
         
-        // Calcul du bout de la queue de l'étoile filante (à l'opposé de la direction)
         const tailX = comet.x - (comet.vx * comet.length) / 10;
         const tailY = comet.y - (comet.vy * comet.length) / 10;
 
-        // Création de la traînée lumineuse (dégradé)
         const gradient = ctx.createLinearGradient(comet.x, comet.y, tailX, tailY);
-        gradient.addColorStop(0, `rgba(255, 255, 255, ${comet.opacity})`); // Tête lumineuse
-        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);                // Queue transparente
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${comet.opacity})`);
+        gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
 
         ctx.beginPath();
         ctx.strokeStyle = gradient;
@@ -103,15 +109,13 @@ export default function StarryBackground() {
         ctx.lineTo(tailX, tailY);
         ctx.stroke();
 
-        // Fait avancer la comète
         comet.x += comet.vx;
         comet.y += comet.vy;
         
-        // La comète s'estompe au bout d'un moment (burnout)
-        comet.opacity -= 0.012; 
+        // Fading plus lent pour qu'on ait le temps de voir la comète traverser l'écran
+        comet.opacity -= 0.008; 
 
-        // Nettoyage : si elle est totalement invisible ou sortie de l'écran, on la supprime
-        if (comet.opacity <= 0 || comet.y > canvas.height || comet.x < 0) {
+        if (comet.opacity <= 0 || comet.y > canvas.height || comet.x < 0 || comet.x > canvas.width) {
           comets.splice(i, 1);
         }
       }
@@ -120,7 +124,11 @@ export default function StarryBackground() {
     };
 
     window.addEventListener("resize", resize);
-    resize();
+    
+    // Initialisation forcée au premier montage
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initStars();
     draw();
 
     return () => {
