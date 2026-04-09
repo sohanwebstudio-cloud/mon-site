@@ -11,6 +11,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const shouldRestoreScroll = useRef(true); // Gère le conflit entre Safari et les liens Next.js
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -28,9 +29,10 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // UX CRITIQUE : Verrouillage absolu du scroll (Anti-bug Safari iOS)
+  // UX CRITIQUE : Verrouillage absolu du scroll AVEC gestion des liens
   useEffect(() => {
     if (mobileMenuOpen) {
+      shouldRestoreScroll.current = true; // On réinitialise l'interrupteur à l'ouverture
       const currentScrollY = window.scrollY;
       document.body.style.position = "fixed";
       document.body.style.top = `-${currentScrollY}px`;
@@ -42,7 +44,12 @@ export default function Header() {
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflow = "";
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      
+      // On ne restaure le scroll QUE si on a fermé le menu manuellement (croix), 
+      // pas si on a cliqué sur un lien de page.
+      if (shouldRestoreScroll.current) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
     }
   }, [mobileMenuOpen]);
 
@@ -54,10 +61,17 @@ export default function Header() {
     calBtn?.click();
   }
 
+  // Fonction centralisée pour les clics sur les liens du menu mobile
+  const handleMobileNavClick = () => {
+    shouldRestoreScroll.current = false; // Désactive la restauration du scroll
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] overflow-hidden border-b ${
+        // J'AI RETIRÉ OVERFLOW-HIDDEN ICI POUR RESSUSCITER TON DROPDOWN
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 w-full max-w-[100vw] border-b ${
           isScrolled 
             ? "py-4 bg-black/50 backdrop-blur-md border-white/10" 
             : "py-6 bg-transparent border-transparent"
@@ -73,11 +87,10 @@ export default function Header() {
 
         <div className="w-full px-4 md:px-12 flex items-center justify-between">
           
-          {/* Logo : Hitbox géante sur mobile (flex-1) et action intelligente */}
           <Link 
             href="/" 
             onClick={(e) => {
-              setMobileMenuOpen(false);
+              handleMobileNavClick();
               if (window.location.pathname === '/') {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -95,7 +108,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Right side: Navigation & Mobile Toggle - shrink-0 pour protéger l'espace */}
           <div className="flex items-center justify-end shrink-0 gap-4 md:gap-8">
             <nav className="hidden lg:flex items-center gap-10 text-sm font-medium text-white/70">
               <Link href="/projets" className="hover:text-white transition-colors duration-200">Projets</Link>
@@ -160,33 +172,32 @@ export default function Header() {
         style={{ pointerEvents: mobileMenuOpen ? "auto" : "none" }}
       >
         <nav className="flex flex-col px-6">
-          <Link href="/projets" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/projets" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Projets
           </Link>
-          <Link href="/a-propos" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/a-propos" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             À propos
           </Link>
-          <Link href="/prestations" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/prestations" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Les prestations
           </Link>
-          <Link href="/contact" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={() => setMobileMenuOpen(false)}>
+          <Link href="/contact" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Contact
           </Link>
         </nav>
 
         <div className="mx-6 mt-8 border border-white/15 rounded overflow-hidden">
-          <button onClick={() => { setMobileMenuOpen(false); openCal(); }} className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer">
+          <button onClick={() => { handleMobileNavClick(); openCal(); }} className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer">
             <CalendarDays size={15} className="text-zinc-400 shrink-0" />
             Réserver un appel
           </button>
           <div className="h-px bg-white/10" />
-          <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200">
+          <Link href="/contact" onClick={handleMobileNavClick} className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200">
             <Mail size={15} className="text-zinc-400 shrink-0" />
             Envoyer un message
           </Link>
         </div>
 
-        {/* Logo de fond en bas de l'overlay */}
         <div className="mt-auto flex justify-center pb-12 px-6">
           <Image 
             src="/logo.png" 
