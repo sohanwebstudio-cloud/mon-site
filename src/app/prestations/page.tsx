@@ -66,12 +66,13 @@ export default function Prestations() {
         </p>
       </div>
 
-      {/* Mobile: horizontal snap scroll — Desktop: 3-col grid */}
-      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-0">
+      {/* Mobile: horizontal snap scroll (95% width) — Desktop: 3-col grid */}
+      {/* px-[2.5%] permet de centrer parfaitement la carte de 95% et gap-4 aère les cartes */}
+      <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-4 px-[2.5%] pb-4">
         {plans.map((plan, i) => (
           <div
             key={i}
-            className="snap-start flex-none w-full px-6"
+            className="snap-center flex-none w-[95%]"
           >
             <PlanCard plan={plan} />
           </div>
@@ -79,7 +80,7 @@ export default function Prestations() {
       </div>
 
       {/* Scroll hint mobile */}
-      <div className="md:hidden flex justify-center gap-2 mt-6">
+      <div className="md:hidden flex justify-center gap-2 mt-4">
         {plans.map((_, i) => (
           <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/20" />
         ))}
@@ -105,8 +106,10 @@ function PlanCard({
 }) {
   return (
     <div
-      className={`flex flex-col h-full py-10 px-8 md:px-10 ${
-        bordered ? "md:border-r border-white/10" : ""
+      // Marges intérieures réduites sur mobile (py-8 px-5) pour gagner en hauteur
+      // Ajout d'une bordure subtile sur mobile pour voir les limites des 95%
+      className={`flex flex-col h-full py-8 px-5 md:py-10 md:px-10 border border-white/10 md:border-t-0 md:border-b-0 md:border-l-0 rounded-2xl md:rounded-none bg-[#050505] md:bg-transparent ${
+        bordered ? "md:border-r" : ""
       }`}
     >
       {/* Title */}
@@ -115,7 +118,7 @@ function PlanCard({
       </h2>
 
       {/* Tagline */}
-      <p className="text-white italic text-sm mb-8 leading-relaxed">
+      <p className="text-white italic text-sm mb-6 md:mb-8 leading-relaxed">
         &ldquo;{plan.tagline}&rdquo;
       </p>
 
@@ -124,7 +127,7 @@ function PlanCard({
         {plan.features.map((feat, j) => (
           <div key={j}>
             <p
-              className={`py-3 text-xs uppercase tracking-widest leading-relaxed font-medium ${
+              className={`py-2.5 md:py-3 text-[11px] md:text-xs uppercase tracking-widest leading-relaxed font-medium ${
                 feat.highlight ? "text-white" : "text-white/60"
               }`}
             >
@@ -148,7 +151,7 @@ function PlanCard({
       {/* CTA */}
       <Link
         href={`/prestations/${plan.slug}`}
-        className="w-full py-5 border border-white rounded text-white text-xs uppercase tracking-widest font-medium text-center hover:bg-white hover:text-black transition-all duration-300 block"
+        className="w-full py-4 border border-white rounded text-white text-[11px] md:text-xs uppercase tracking-widest font-medium text-center hover:bg-white hover:text-black transition-all duration-300 block"
       >
         Découvrir cette formule &rarr;
       </Link>
