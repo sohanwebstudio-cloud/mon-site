@@ -28,16 +28,30 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // UX CRITIQUE : Bloquer le scroll du site quand le menu mobile est ouvert
+// UX CRITIQUE : Verrouillage absolu du scroll (Anti-bug Safari iOS)
   useEffect(() => {
     if (mobileMenuOpen) {
+      // 1. On mémorise la position exacte du scroll actuel
+      const currentScrollY = window.scrollY;
+      
+      // 2. On fige la page exactement à cet endroit
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${currentScrollY}px`;
+      document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "unset";
+      // 1. On récupère la valeur du scroll sauvegardée
+      const scrollY = document.body.style.top;
+      
+      // 2. On nettoie les styles de blocage
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      
+      // 3. On replace l'utilisateur silencieusement là où il était
+      window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
   }, [mobileMenuOpen]);
 
   function openCal() {
