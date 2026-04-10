@@ -19,6 +19,7 @@ import {
   type LucideIcon
 } from "lucide-react";
 
+
 const iconStrip: LucideIcon[] = [
   ScanSearch,
   Command,
@@ -114,7 +115,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full overflow-hidden">
+<section className="w-full overflow-hidden">
         <div className="relative w-full overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-black via-black/90 to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-black via-black/90 to-transparent z-10" />
@@ -126,20 +127,15 @@ export default function Home() {
             {[...iconStrip, ...iconStrip].map((Icon, index) => (
               <motion.div
                 key={`${Icon.displayName ?? Icon.name}-${index}`}
-                initial={false}
-                animate={{
-                  y: [
-                    Math.sin(index * 0.6) * 14,
-                    Math.sin(index * 0.6 + Math.PI / 2) * 14,
-                    Math.sin(index * 0.6 + Math.PI) * 14,
-                    Math.sin(index * 0.6 + (3 * Math.PI) / 2) * 14,
-                    Math.sin(index * 0.6 + 2 * Math.PI) * 14
-                  ]
-                }}
+                animate={{ y: [0, -12, 0], filter: "invert(0)" }}
+                whileHover={{ filter: "invert(1)", transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] } }}
                 transition={{
-                  duration: 11 + (index % 4),
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  y: {
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.18
+                  }
                 }}
                 className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-white/8 bg-white/[0.03] text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm md:h-24 md:w-24"
               >
@@ -147,6 +143,7 @@ export default function Home() {
               </motion.div>
             ))}
           </motion.div>
+          
         </div>
       </section>
 

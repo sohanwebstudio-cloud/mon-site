@@ -12,7 +12,7 @@ export default function Footer() {
               <Image src="/logo.png" alt="Sohan Web Studio Logo" width={320} height={70} className="object-contain" />
             </Link>
             <p className="text-zinc-400 max-w-sm mb-8 leading-relaxed">
-              Design Web & Stratégie Digitale. Création de sites web haut de gamme sur Framer et Next.js.
+              Stratégie & Développement haut de gamme. L'esthétique de pointe alliée à la performance Next.js.
             </p>
           </div>
           
