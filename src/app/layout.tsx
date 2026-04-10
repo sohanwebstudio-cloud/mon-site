@@ -19,8 +19,17 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "Sohan Web Studio — Design Web & Stratégie Digitale",
-  description: "Création de sites web haut de gamme sur Framer. Nous concevons des identités digitales minimalistes et immersives pour les marques et entreprises ambitieuses.",
+  title: "Sohan Web Studio | Création de Sites Web Sur-Mesure & Premium",
+  description: "Studio de création digitale spécialisé dans le développement web sur-mesure. Nous concevons des sites performants, minimalistes et optimisés pour la conversion.",
+  keywords: ["création site web", "développement sur-mesure", "web design premium", "Next.js", "agence web", "design minimaliste", "SEO"],
+  openGraph: {
+    title: "Sohan Web Studio | Création de Sites Web Sur-Mesure",
+    description: "Studio de création digitale spécialisé dans le développement web sur-mesure. Nous concevons des sites performants et minimalistes.",
+    url: "https://sohanwebstudio.com",
+    siteName: "Sohan Web Studio",
+    locale: "fr_FR",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
