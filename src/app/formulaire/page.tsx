@@ -54,7 +54,7 @@ function Chip({
       className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer select-none border ${
         on
           ? "border-white bg-white text-black"
-          : "border-white/20 bg-white/5 text-zinc-400 hover:border-white/40"
+          : "border-white/20 bg-white/5 text-zinc-200 hover:border-white/40"
       }`}
     >
       {label}
@@ -216,7 +216,7 @@ export default function Formulaire() {
               <h2 className="font-notable text-xl md:text-2xl uppercase tracking-widest text-white mb-4">
                 Merci pour vos reponses !
               </h2>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-zinc-200 leading-relaxed">
                 J&apos;analyse votre Passeport Graphique avec attention.
                 <br />
                 Je vous recontacte sous 48h pour notre premiere session.
@@ -229,7 +229,7 @@ export default function Formulaire() {
               <h1 className="font-notable text-4xl md:text-6xl text-white mb-4">
                 Identite Graphique
               </h1>
-              <p className="text-zinc-400 text-base max-w-lg mx-auto leading-relaxed">
+              <p className="text-zinc-200 text-base max-w-lg mx-auto leading-relaxed">
                 Ce formulaire me permet de comprendre votre univers visuel avant
                 de commencer votre projet. Comptez 10 a 15 minutes.
               </p>
@@ -294,7 +294,7 @@ export default function Formulaire() {
                   Vos fichiers — Logo, charte & captures
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-300 mb-3">
+                  <p className="text-sm text-zinc-100 mb-3">
                     Mettez votre logo, charte graphique et captures de votre
                     site dans un dossier{" "}
                     <strong className="text-white">Google Drive</strong> ou{" "}
@@ -363,7 +363,7 @@ export default function Formulaire() {
                   Lien vers vos references visuelles
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-300 mb-3">
+                  <p className="text-sm text-zinc-100 mb-3">
                     Logos, sites, captures Pinterest — partagez via Google Drive
                     ou WeTransfer
                   </p>

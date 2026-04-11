@@ -30,12 +30,12 @@ export default function Contact() {
     <div className="pt-32 pb-20 px-6 min-h-screen">
       <div className="container mx-auto max-w-2xl">
         <h1 className="font-notable text-4xl md:text-6xl font-bold text-white mb-6 text-center">Parlons de votre projet.</h1>
-        <p className="text-zinc-400 text-lg text-center mb-16">Vous avez une vision ? Donnons-lui vie. Contactez le studio pour discuter de vos objectifs et obtenir un devis pour votre site internet haut de gamme. Réponse sous 24h.</p>
+        <p className="text-zinc-200 text-lg text-center mb-16">Vous avez une vision ? Donnons-lui vie. Contactez le studio pour discuter de vos objectifs et obtenir un devis pour votre site internet haut de gamme. Réponse sous 24h.</p>
 
         {status === "success" ? (
           <div className="bg-white/5 p-12 rounded-2xl border border-white/10 text-center">
             <p className="text-2xl font-semibold text-white mb-4">Message envoyé !</p>
-            <p className="text-zinc-400">Merci pour votre message. Je vous réponds sous 24h.</p>
+            <p className="text-zinc-200">Merci pour votre message. Je vous réponds sous 24h.</p>
             <button
               onClick={() => setStatus("idle")}
               className="mt-8 px-[30px] py-5 border border-white rounded text-white font-medium uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"
@@ -47,20 +47,20 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6 bg-white/5 p-8 rounded-2xl border border-white/10">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
-                <label className="block text-sm font-medium text-zinc-300 mb-2">Prénom</label>
+                <label className="block text-sm font-medium text-zinc-100 mb-2">Prénom</label>
                 <input name="prenom" type="text" required className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-zinc-300 mb-2">Nom</label>
+                <label className="block text-sm font-medium text-zinc-100 mb-2">Nom</label>
                 <input name="nom" type="text" required className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors" />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-300 mb-2">Email</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Email</label>
               <input name="email" type="email" required className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-zinc-300 mb-2">Message</label>
+              <label className="block text-sm font-medium text-zinc-100 mb-2">Message</label>
               <textarea name="message" rows={5} required className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors"></textarea>
             </div>
             <button

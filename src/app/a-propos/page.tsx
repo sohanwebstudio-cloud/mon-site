@@ -61,7 +61,7 @@ export default function APropos() {
           <h1 className="font-notable text-5xl md:text-7xl lg:text-6xl font-bold text-white uppercase leading-none mb-8">
             Du plan au pixel.
           </h1>
-          <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl">
+          <p className="text-zinc-100 text-lg leading-relaxed max-w-2xl">
             Sohan, Designer & Expert Framer. Mon background en architecture dicte mon approche : éliminer le superflu pour ne garder que l&apos;essentiel. Je construis des expériences web immersives et performantes depuis mon studio en Bretagne.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function APropos() {
 
         {/* Convictions */}
         <div className="mb-24">
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-10">Mes convictions</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-zinc-200 mb-10">Mes convictions</p>
           <p className="text-2xl md:text-3xl text-white leading-relaxed max-w-3xl">
             Le design n&apos;est pas de l&apos;art, c&apos;est de l&apos;intelligence rendue visible. Il ne sert pas à décorer, mais à{" "}
             <strong>clarifier le chaos.</strong> Là où l&apos;art pose des questions,{" "}

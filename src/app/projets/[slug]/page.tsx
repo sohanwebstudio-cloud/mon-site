@@ -349,7 +349,7 @@ export default function ProjetDetail({
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
           {projet.metadata.map((item) => (
             <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-zinc-400">{item.label}:</span>
+              <span className="text-zinc-200">{item.label}:</span>
               <span className="text-white">{item.value}</span>
             </motion.div>
           ))}
@@ -368,7 +368,7 @@ export default function ProjetDetail({
             <h2 className="font-notable text-3xl md:text-4xl font-bold text-white uppercase mb-6 leading-tight text-center lg:text-left">
               Le Challenge
             </h2>
-            <p className="text-zinc-300 text-lg leading-relaxed text-center lg:text-left">
+            <p className="text-zinc-100 text-lg leading-relaxed text-center lg:text-left">
               {projet.challenge}
             </p>
             <motion.a
@@ -425,7 +425,7 @@ export default function ProjetDetail({
                 <h2 className="font-notable text-3xl md:text-4xl font-bold text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-zinc-400 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-zinc-200 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>

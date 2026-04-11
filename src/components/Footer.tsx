@@ -11,14 +11,14 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Image src="/logo.png" alt="Sohan Web Studio Logo" width={320} height={70} className="object-contain" />
             </Link>
-            <p className="text-zinc-400 max-w-sm mb-8 leading-relaxed">
+            <p className="text-zinc-200 max-w-sm mb-8 leading-relaxed">
               Stratégie & Développement haut de gamme. L'esthétique de pointe alliée à la performance Next.js.
             </p>
           </div>
           
           <div>
             <h4 className="text-lg font-medium text-white mb-6">Pages</h4>
-            <ul className="space-y-4 text-zinc-400">
+            <ul className="space-y-4 text-zinc-200">
               <li><Link href="/" className="hover:text-white transition-colors">Accueil</Link></li>
               <li><Link href="/projets" className="hover:text-white transition-colors">Projets</Link></li>
               <li><Link href="/a-propos" className="hover:text-white transition-colors">À Propos</Link></li>
@@ -28,7 +28,7 @@ export default function Footer() {
           
           <div>
             <h4 className="text-lg font-medium text-white mb-6">Social</h4>
-            <ul className="space-y-4 text-zinc-400">
+            <ul className="space-y-4 text-zinc-200">
               <li>
                 <a href="https://www.instagram.com/sohanwebstudio/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between hover:text-white transition-colors">
                   Instagram <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -46,7 +46,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between border-t border-white/10 pt-8 text-sm text-zinc-500">
           <p>© {new Date().getFullYear()} Sohan Web Studio</p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="/mentions-legales" className="hover:text-zinc-300 transition-colors">Mentions Légales</Link>
+            <Link href="/mentions-legales" className="hover:text-zinc-100 transition-colors">Mentions Légales</Link>
           </div>
         </div>
       </div>

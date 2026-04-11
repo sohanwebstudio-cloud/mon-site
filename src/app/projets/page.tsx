@@ -34,7 +34,7 @@ export default function Projets() {
     <div className="pt-32 pb-20 px-6 min-h-screen">
       <div className="container mx-auto">
         <h1 className="font-notable text-4xl md:text-6xl font-bold text-white mb-6">Projets</h1>
-        <p className="text-zinc-400 text-lg max-w-2xl">Découvrez mes récentes réalisations et comment j&apos;ai aidé mes clients à transformer leur présence en ligne.</p>
+        <p className="text-zinc-200 text-lg max-w-2xl">Découvrez mes récentes réalisations et comment j&apos;ai aidé mes clients à transformer leur présence en ligne.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
           {projets.map((projet) => (
@@ -57,7 +57,7 @@ export default function Projets() {
                     <ArrowRight size={18} />
                   </div>
                 </div>
-                <p className="text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                <p className="text-zinc-200 group-hover:text-zinc-100 transition-colors">
                   {projet.desc}
                 </p>
               </div>

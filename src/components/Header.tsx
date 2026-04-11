@@ -134,7 +134,7 @@ export default function Header() {
                     onClick={openCal}
                     className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
                   >
-                    <CalendarDays size={15} className="text-zinc-400 shrink-0" />
+                    <CalendarDays size={15} className="text-zinc-200 shrink-0" />
                     Réserver un appel
                   </button>
                   <div className="h-px bg-white/10" />
@@ -143,7 +143,7 @@ export default function Header() {
                     onClick={() => setDropdownOpen(false)}
                     className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200"
                   >
-                    <Mail size={15} className="text-zinc-400 shrink-0" />
+                    <Mail size={15} className="text-zinc-200 shrink-0" />
                     Envoyer un message
                   </Link>
                 </div>
@@ -172,28 +172,28 @@ export default function Header() {
         style={{ pointerEvents: mobileMenuOpen ? "auto" : "none" }}
       >
         <nav className="flex flex-col px-6">
-          <Link href="/projets" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
+          <Link href="/projets" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Projets
           </Link>
-          <Link href="/a-propos" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
+          <Link href="/a-propos" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             À propos
           </Link>
-          <Link href="/prestations" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
+          <Link href="/prestations" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Les prestations
           </Link>
-          <Link href="/contact" className="text-lg font-medium text-zinc-300 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
+          <Link href="/contact" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Contact
           </Link>
         </nav>
 
         <div className="mx-6 mt-8 border border-white/15 rounded overflow-hidden">
           <button onClick={() => { handleMobileNavClick(); openCal(); }} className="w-full flex items-center gap-3 px-5 py-4 text-left text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer">
-            <CalendarDays size={15} className="text-zinc-400 shrink-0" />
+            <CalendarDays size={15} className="text-zinc-200 shrink-0" />
             Réserver un appel
           </button>
           <div className="h-px bg-white/10" />
           <Link href="/contact" onClick={handleMobileNavClick} className="flex items-center gap-3 px-5 py-4 text-sm text-white uppercase tracking-widest font-medium hover:bg-white/10 transition-colors duration-200">
-            <Mail size={15} className="text-zinc-400 shrink-0" />
+            <Mail size={15} className="text-zinc-200 shrink-0" />
             Envoyer un message
           </Link>
         </div>
