@@ -58,8 +58,7 @@ export default function APropos() {
 
         {/* Intro */}
         <div className="mb-24">
-          <p className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-6"></p>
-          <h1 className="font-notable text-5xl md:text-7xl lg:text-8xl font-bold text-white uppercase leading-none mb-8">
+          <h1 className="font-notable text-5xl md:text-7xl lg:text-6xl font-bold text-white uppercase leading-none mb-8">
             Du plan au pixel.
           </h1>
           <p className="text-zinc-300 text-lg leading-relaxed max-w-2xl">
