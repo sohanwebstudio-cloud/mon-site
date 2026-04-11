@@ -63,18 +63,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 overflow-hidden px-6">
+      <section className="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden px-6">
         <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-zinc-300 mb-8 text-sm font-medium backdrop-blur-md"
-          >
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            Agence de communication digitale basée à Vannes
-          </motion.div>
-          
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,7 +83,7 @@ export default function Home() {
             Ne laissez plus votre image freiner votre croissance. Des sites web épurés, rapides et conçus pour générer des ventes.
           </motion.p>
           
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
@@ -112,10 +102,19 @@ export default function Home() {
               Explorer les sites web
             </Link>
           </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+            className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-500"
+          >
+            Agence de communication digitale
+          </motion.p>
         </div>
       </section>
 
-<section className="w-full overflow-hidden">
+<section className="w-full overflow-hidden -mt-8">
         <div className="relative w-full overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-black via-black/90 to-transparent z-10" />
           <div className="pointer-events-none absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-black via-black/90 to-transparent z-10" />
