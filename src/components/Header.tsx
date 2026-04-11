@@ -103,7 +103,7 @@ export default function Header() {
               alt="Sohan Web Studio Logo" 
               width={340} 
               height={72} 
-              className="object-contain w-[170px] sm:w-[220px] lg:w-auto lg:h-5" 
+              className="object-contain w-[170px] sm:w-[220px] lg:w-auto lg:h-3.5" 
               priority 
             />
           </Link>

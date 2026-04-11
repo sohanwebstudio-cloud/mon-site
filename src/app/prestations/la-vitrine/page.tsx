@@ -43,26 +43,30 @@ const features = [
   "Livraison en 21 jours ouvrés",
 ];
 
-const sections: { title: React.ReactNode; text: string }[] = [
+const B = ({ children }: { children: React.ReactNode }) => (
+  <strong className="text-white font-semibold">{children}</strong>
+);
+
+const sections: { title: React.ReactNode; text: React.ReactNode }[] = [
   {
     title: <>Cinq pages pensées pour guider, captiver, <span className="bg-white text-black px-1">convertir</span></>,
-    text: "La Vitrine est construite autour d'un principe simple : chaque page a un rôle précis dans le parcours de votre visiteur. La page d'accueil accroche et qualifie. La page services convainc. La page portfolio ou témoignages rassure. La page À propos humanise. La page contact convertit.\n\nCette architecture éditoriale est définie avant même qu'une ligne de code soit écrite. Le résultat est un site où le visiteur est naturellement guidé vers l'action, sans friction, sans confusion — un parcours pensé comme une expérience, pas comme une suite de pages.",
+    text: <>La Vitrine est construite autour d'un principe simple : chaque page a un rôle précis dans le parcours de votre visiteur. La page d'accueil accroche et qualifie. La page services convainc. La page portfolio ou témoignages rassure. La page À propos humanise. La page contact convertit.{"\n\n"}Cette <B>architecture éditoriale</B> est définie avant même qu'une ligne de code soit écrite. Le résultat est un site où le visiteur est naturellement guidé vers l'action, sans friction, sans confusion — un parcours pensé comme une expérience, <B>pas comme une suite de pages</B>.</>,
   },
   {
     title: <>Des animations qui donnent <span className="bg-white text-black px-1">vie</span> à votre marque</>,
-    text: "Sur La Vitrine, le design n'est pas statique : il respire. Les animations au scroll déclenchent des entrées fluides sur chaque section, les transitions hover ajoutent une couche d'interactivité subtile, et les passages de section sont orchestrés pour maintenir le rythme de lecture sans jamais distraire du contenu.\n\nChaque mouvement est une décision de design. Rien n'est ajouté par défaut : chaque animation sert la perception premium de votre marque, guide l'œil et renforce la crédibilité de votre présence en ligne. Un site qui bouge bien est un site dont on se souvient.",
+    text: <>Sur La Vitrine, le design n'est pas statique : il respire. Les animations au scroll déclenchent des entrées fluides sur chaque section, les transitions hover ajoutent une couche d'interactivité subtile, et les passages de section sont orchestrés pour maintenir le rythme de lecture sans jamais distraire du contenu.{"\n\n"}Chaque mouvement est une <B>décision de design</B>. Rien n'est ajouté par défaut : chaque animation sert la perception premium de votre marque, guide l'œil et renforce la crédibilité de votre présence en ligne. Un site qui bouge bien est un site <B>dont on se souvient</B>.</>,
   },
   {
     title: <>Un contenu <span className="bg-white text-black px-1">vivant</span>, géré pour vous</>,
-    text: "Votre site doit vivre avec votre activité. La Vitrine intègre un espace blog ou portfolio dont le contenu est géré par nos soins dans le cadre de votre plan de maintenance. Nouvelle étude de cas, nouvel article, nouvelle référence client : vous nous transmettez l'information, nous nous occupons de la publication avec un rendu soigné, cohérent à la charte graphique.\n\nPas de formation, pas de back-office à apprivoiser. Vous vous concentrez sur votre métier, on s'occupe du reste.",
+    text: <>Votre site doit vivre avec votre activité. La Vitrine intègre un espace blog ou portfolio dont le contenu est géré par nos soins dans le cadre de votre plan de maintenance. Nouvelle étude de cas, nouvel article, nouvelle référence client : vous nous transmettez l'information, nous nous occupons de la publication avec un rendu soigné, <B>cohérent à la charte graphique</B>.{"\n\n"}Pas de formation, pas de back-office à apprivoiser. Vous vous concentrez sur <B>votre métier</B>, on s'occupe du reste.</>,
   },
   {
     title: <>Des outils qui <span className="bg-white text-black px-1">travaillent</span> pour vous</>,
-    text: "La Vitrine intègre les outils que vous utilisez déjà ou prévoyez d'adopter : Calendly pour la prise de rendez-vous directement sur votre site, Mailchimp ou Brevo pour capturer des emails et nourrir votre audience, Google Analytics pour piloter vos performances, et la configuration Open Graph pour des aperçus impeccables sur les réseaux sociaux.\n\nChaque intégration est testée et validée avant la livraison. Vous récupérez un écosystème digital cohérent et opérationnel — pas une simple vitrine isolée de vos outils métier.",
+    text: <>La Vitrine intègre les outils que vous utilisez déjà ou prévoyez d'adopter : Calendly pour la prise de rendez-vous directement sur votre site, Mailchimp ou Brevo pour capturer des emails et nourrir votre audience, Google Analytics pour piloter vos performances, et la configuration Open Graph pour des aperçus impeccables sur les réseaux sociaux.{"\n\n"}Chaque intégration est testée et validée avant la livraison. Vous récupérez un <B>écosystème digital cohérent</B> et opérationnel — pas une simple vitrine isolée de vos outils métier.</>,
   },
   {
     title: <>5 révisions mensuelles — un site qui <span className="bg-white text-black px-1">évolue</span> avec vous</>,
-    text: "Après la livraison, vous disposez de 5 demandes de modifications par mois pendant 3 mois. Mise à jour de vos tarifs, ajout d'un nouveau service, retouche d'un visuel, modification d'un texte de vente : chaque demande est traitée sous 48h ouvrées, sans frais supplémentaires.\n\nCe suivi n'est pas un service après-vente générique. C'est une relation de travail continue qui vous permet de faire évoluer votre site au même rythme que votre activité — les premiers mois étant souvent les plus riches en apprentissages sur ce qui convertit vraiment.",
+    text: <>Après la livraison, vous disposez de 5 demandes de modifications par mois pendant 3 mois. Mise à jour de vos tarifs, ajout d'un nouveau service, retouche d'un visuel, modification d'un texte de vente : chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi n'est pas un service après-vente générique. C'est une relation de travail continue qui vous permet de faire évoluer votre site au même rythme que votre activité — les premiers mois étant souvent les plus riches en apprentissages sur <B>ce qui convertit vraiment</B>.</>,
   },
 ];
 

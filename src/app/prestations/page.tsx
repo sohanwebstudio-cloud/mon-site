@@ -127,7 +127,7 @@ function PlanCard({
         {plan.features.map((feat, j) => (
           <div key={j}>
             <p
-              className={`py-2.5 md:py-3 text-[11px] md:text-xs uppercase tracking-widest leading-relaxed font-medium ${
+              className={`py-2.5 md:py-3 text-[11px] md:text-xs uppercase tracking-widest leading-relaxed font-medium [&_strong]:border [&_strong]:border-white/60 [&_strong]:px-0.5 [&_strong]:rounded-[2px] [&_strong]:text-white [&_strong]:font-medium ${
                 feat.highlight ? "text-white" : "text-white/60"
               }`}
             >

@@ -43,22 +43,26 @@ const features = [
   "Livraison en 10 jours ouvrés",
 ];
 
-const sections: { title: React.ReactNode; text: string }[] = [
+const B = ({ children }: { children: React.ReactNode }) => (
+  <strong className="text-white font-semibold">{children}</strong>
+);
+
+const sections: { title: React.ReactNode; text: React.ReactNode }[] = [
   {
     title: <>Votre vitrine en ligne, conçue pour <span className="bg-white text-black px-1">convaincre</span></>,
-    text: "La formule Fondation a été pensée pour ceux qui veulent entrer dans l'ère digitale sans compromis sur la qualité. Trois pages sur mesure, c'est suffisant pour présenter votre activité avec autorité : une page d'accueil qui capte l'attention en moins de trois secondes, une page services qui détaille votre valeur ajoutée, et une page contact qui retire tout obstacle à la prise de contact.\n\nChaque page est conçue à la main, à partir de zéro. Aucun template générique, aucun raccourci visuel. Le design reflète votre univers, vos couleurs, votre ton — et uniquement les vôtres.",
+    text: <>La formule Fondation a été pensée pour ceux qui veulent entrer dans l'ère digitale sans compromis sur la qualité. Trois pages sur mesure, c'est suffisant pour présenter votre activité avec <B>autorité</B> : une page d'accueil qui <B>capte l'attention</B> en moins de trois secondes, une page services qui détaille votre valeur ajoutée, et une page contact qui retire tout obstacle à la prise de contact.{"\n\n"}Chaque page est conçue à la main, à partir de zéro. Aucun template générique, aucun raccourci visuel. Le design reflète votre univers, vos couleurs, votre ton — et uniquement les vôtres.</>,
   },
   {
     title: <>Un SEO technique <span className="bg-white text-black px-1">soigné</span> dès le premier jour</>,
-    text: "Être en ligne ne suffit pas : encore faut-il être trouvé. La formule Fondation intègre une configuration SEO technique complète — balises title et méta descriptions optimisées pour chaque page, sitemap XML soumis à Google Search Console, fichier robots.txt configuré, et performance technique vérifiée pour atteindre un score Lighthouse supérieur à 90.\n\nLa mise en conformité RGPD est également incluse : mentions légales rédigées et politique de confidentialité intégrée. Votre site est irréprochable sur le plan légal et technique dès le premier jour.",
+    text: <>Être en ligne ne suffit pas : encore faut-il être trouvé. La formule Fondation intègre une configuration SEO technique complète — balises title et méta descriptions optimisées pour chaque page, sitemap XML soumis à Google Search Console, fichier robots.txt configuré, et performance technique vérifiée pour atteindre un <B>score Lighthouse supérieur à 90</B>.{"\n\n"}La mise en conformité RGPD est également incluse : mentions légales rédigées et politique de confidentialité intégrée. Votre site est <B>irréprochable</B> sur le plan légal et technique dès le premier jour.</>,
   },
   {
     title: <>Vos contenus intégrés avec <span className="bg-white text-black px-1">soin</span></>,
-    text: "Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est compressée et optimisée pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.\n\nLe formulaire de contact est relié à votre adresse email et testé avant livraison. Vous commencez à recevoir des demandes dès la mise en ligne, sans aucune configuration de votre part.",
+    text: <>Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est <B>compressée et optimisée</B> pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.{"\n\n"}Le formulaire de contact est relié à votre adresse email et testé avant livraison. Vous commencez à recevoir des demandes <B>dès la mise en ligne</B>, sans aucune configuration de votre part.</>,
   },
   {
     title: <>3 révisions par mois — votre site reste <span className="bg-white text-black px-1">vivant</span></>,
-    text: "Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois pendant 3 mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous 48h ouvrées, sans frais supplémentaires.\n\nCe suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — les premiers mois, quand les retours clients arrivent et que votre offre s'affine.",
+    text: <>Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois pendant 3 mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — <B>les premiers mois</B>, quand les retours clients arrivent et que votre offre s'affine.</>,
   },
 ];
 

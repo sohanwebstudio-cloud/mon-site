@@ -43,22 +43,26 @@ const features = [
   "Support prioritaire 30 jours post-livraison",
 ];
 
-const sections: { title: React.ReactNode; text: string }[] = [
+const B = ({ children }: { children: React.ReactNode }) => (
+  <strong className="text-white font-semibold">{children}</strong>
+);
+
+const sections: { title: React.ReactNode; text: React.ReactNode }[] = [
   {
     title: <>Une architecture construite autour de vos <span className="bg-white text-black px-1">objectifs</span></>,
-    text: "La formule Sur Mesure commence là où les templates s'arrêtent. E-commerce avec gestion d'inventaire avancée, extranet client avec authentification, connexion à votre CRM ou ERP existant, plateforme de réservation automatisée, SaaS avec gestion d'abonnements : chaque projet démarre d'une analyse approfondie de vos besoins business, pas d'un thème prêt à l'emploi qu'on tente d'adapter.\n\nL'architecture technique est définie en amont, documentée et validée ensemble avant que le moindre composant ne soit développé. Vous savez exactement ce qui est construit, pourquoi, et comment cela s'inscrit dans votre stratégie globale.",
+    text: <>La formule Sur Mesure commence là où les templates s'arrêtent. E-commerce avec gestion d'inventaire avancée, extranet client avec authentification, connexion à votre CRM ou ERP existant, plateforme de réservation automatisée, SaaS avec gestion d'abonnements : chaque projet démarre d'une <B>analyse approfondie</B> de vos besoins business, pas d'un thème prêt à l'emploi qu'on tente d'adapter.{"\n\n"}L'architecture technique est définie en amont, documentée et <B>validée ensemble</B> avant que le moindre composant ne soit développé. Vous savez exactement ce qui est construit, pourquoi, et comment cela s'inscrit dans votre stratégie globale.</>,
   },
   {
     title: <>Une direction artistique <span className="bg-white text-black px-1">pilotée</span> ensemble</>,
-    text: "Avant d'écrire une ligne de code, nous validons ensemble un moodboard complet : palettes chromatiques, typographies, références visuelles, directions de mise en page. Vous recevez ensuite un système de design complet sur Figma — design tokens, bibliothèque de composants, états responsive — qui sert de référence unique pour l'ensemble du projet.\n\nCe processus garantit qu'il n'y a pas de surprise à la livraison. Chaque décision visuelle a été validée en amont, en collaboration. Le résultat est un site qui ne ressemble à aucun autre parce qu'il a été conçu pour vous, et uniquement pour vous.",
+    text: <>Avant d'écrire une ligne de code, nous validons ensemble un moodboard complet : palettes chromatiques, typographies, références visuelles, directions de mise en page. Vous recevez ensuite un système de design complet sur Figma — design tokens, bibliothèque de composants, états responsive — qui sert de référence unique pour l'ensemble du projet.{"\n\n"}Ce processus garantit qu'il n'y a <B>pas de surprise à la livraison</B>. Chaque décision visuelle a été validée en amont, en collaboration. Le résultat est un site qui ne ressemble à aucun autre parce qu'il a été <B>conçu pour vous</B>, et uniquement pour vous.</>,
   },
   {
     title: <>Des intégrations <span className="bg-white text-black px-1">sans limite</span></>,
-    text: "Paiement Stripe avec gestion des abonnements, CRM HubSpot ou Pipedrive, base de données Airtable ou Notion, automatisations Zapier ou Make, recherche Algolia, email transactionnel SendGrid, authentification sécurisée : dans la formule Sur Mesure, chaque besoin d'intégration trouve sa solution.\n\nNous ne rognons pas les angles pour rentrer dans un cadre prédéfini. Nous construisons l'infrastructure dont votre business a besoin aujourd'hui, avec une vision claire sur la scalabilité de demain. Chaque choix technique est documenté et transmis à la livraison.",
+    text: <>Paiement Stripe avec gestion des abonnements, CRM HubSpot ou Pipedrive, base de données Airtable ou Notion, automatisations Zapier ou Make, recherche Algolia, email transactionnel SendGrid, authentification sécurisée : dans la formule Sur Mesure, chaque besoin d'intégration trouve sa solution.{"\n\n"}Nous ne rognons pas les angles pour rentrer dans un cadre prédéfini. Nous construisons l'infrastructure dont votre business a besoin aujourd'hui, avec une vision claire sur la <B>scalabilité de demain</B>. Chaque choix technique est documenté et transmis à la livraison.</>,
   },
   {
     title: <>Un partenariat qui <span className="bg-white text-black px-1">dure</span> au-delà de la livraison</>,
-    text: "30 jours de support prioritaire post-livraison, c'est un véritable partenaire opérationnel pendant la période critique du lancement. Un bug corrigé sous 2 heures, un ajustement de dernière minute, une question de performance : vous avez une ligne directe. Les demandes ne passent pas par un système de tickets — elles arrivent directement et sont traitées en priorité absolue.\n\nAu-delà de cette période, nous définissons ensemble un accord de maintenance et d'évolution adapté à l'activité de votre projet. Parce qu'un grand site n'est pas une prestation ponctuelle — c'est un investissement continu qui mérite un accompagnement à la hauteur.",
+    text: <>30 jours de support prioritaire post-livraison, c'est un véritable partenaire opérationnel pendant la période critique du lancement. Un bug corrigé sous <B>2 heures</B>, un ajustement de dernière minute, une question de performance : vous avez une <B>ligne directe</B>. Les demandes ne passent pas par un système de tickets — elles arrivent directement et sont traitées en priorité absolue.{"\n\n"}Au-delà de cette période, nous définissons ensemble un accord de maintenance et d'évolution adapté à l'activité de votre projet. Parce qu'un grand site n'est pas une prestation ponctuelle — c'est un investissement continu qui mérite un accompagnement à la hauteur.</>,
   },
 ];
 

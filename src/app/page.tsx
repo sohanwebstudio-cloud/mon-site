@@ -107,9 +107,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-500"
+            className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-100"
           >
-            Agence de communication digitale
+            Agence de communication digitale basée à Vannes, Bretagne.
           </motion.p>
         </div>
       </section>
