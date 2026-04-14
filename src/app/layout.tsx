@@ -38,9 +38,6 @@ export const metadata: Metadata = {
     "freelance web Vannes",
   ],
   metadataBase: new URL("https://sohanwebstudio.com"),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Agence Web Vannes | Création Site Internet — Sohan Web Studio",
     description: "Agence web à Vannes (Bretagne). Création de sites internet sur-mesure, design premium, Next.js. Devis gratuit sous 24h.",
