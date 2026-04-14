@@ -205,7 +205,7 @@ export default function HomeClient() {
               >
                 <div className="text-6xl font-black text-white/5 absolute -top-6 -left-2 pointer-events-none">{step.num}</div>
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-full bg-white text-black font-bold text-sm">{step.num}</span>
+                  <span className="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-white text-black font-bold text-sm">{step.num}</span>
                   <h3 className="font-notable text-2xl font-semibold text-white">{step.title}</h3>
                 </div>
                 <p className="text-zinc-200 mb-6 leading-relaxed">{step.desc}</p>
