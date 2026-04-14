@@ -1,6 +1,18 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Prestations | Création Site Web Vannes — Tarifs & Formules",
+  description: "Découvrez nos formules de création de sites web à Vannes : Fondation dès 700€, La Vitrine à 1 200€, Sur-Mesure sur devis. Développement Next.js, design premium, livraison en 7 à 21 jours.",
+  alternates: {
+    canonical: "https://sohanwebstudio.com/prestations",
+  },
+  openGraph: {
+    title: "Prestations — Création Site Web Vannes | Sohan Web Studio",
+    description: "Formules de création de sites web à Vannes (Bretagne). Fondation 700€, La Vitrine 1200€, Sur-Mesure. Design premium, Next.js, SEO inclus.",
+    url: "https://sohanwebstudio.com/prestations",
+  },
+};
 
 const plans = [
   {

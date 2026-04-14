@@ -11,9 +11,14 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-6">
               <Image src="/logo.png" alt="Sohan Web Studio Logo" width={320} height={70} className="object-contain" />
             </Link>
-            <p className="text-zinc-200 max-w-sm mb-8 leading-relaxed">
+            <p className="text-zinc-200 max-w-sm mb-4 leading-relaxed">
               Stratégie & Développement haut de gamme. L'esthétique de pointe alliée à la performance Next.js.
             </p>
+            <address className="not-italic text-sm text-zinc-400 leading-relaxed">
+              Agence web — Vannes, Morbihan (56)<br />
+              Bretagne, France<br />
+              <a href="mailto:sohanwebstudio@gmail.com" className="hover:text-zinc-200 transition-colors">sohanwebstudio@gmail.com</a>
+            </address>
           </div>
           
           <div>

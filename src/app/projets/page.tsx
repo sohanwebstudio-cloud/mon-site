@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Réalisations | Sites Web Créés par Notre Agence à Vannes",
+  description: "Portfolio de sites internet créés par Sohan Web Studio, agence web à Vannes (Bretagne). E-commerce Shopify, vitrines digitales premium, applications web sur-mesure.",
+  alternates: {
+    canonical: "https://sohanwebstudio.com/projets",
+  },
+  openGraph: {
+    title: "Nos Réalisations — Agence Web Vannes | Sohan Web Studio",
+    description: "Découvrez les sites web créés par notre agence à Vannes : e-commerce, vitrines premium, applications sur-mesure.",
+    url: "https://sohanwebstudio.com/projets",
+  },
+};
 
 export default function Projets() {
   const projets = [
