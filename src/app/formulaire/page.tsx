@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const FORMSPREE_URL = "https://formspree.io/f/xzdjwgoo";
 
@@ -140,10 +140,8 @@ export default function Formulaire() {
     plus: "",
   });
 
-  const [logoFiles, setLogoFiles] = useState<string[]>([]);
-  const [refsFiles, setRefsFiles] = useState<string[]>([]);
-  const logoUrls = useRef<string[]>([]);
-  const refsUrls = useRef<string[]>([]);
+  const [logoUploaded, setLogoUploaded] = useState(0);
+  const [refsUploaded, setRefsUploaded] = useState(0);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -155,9 +153,9 @@ export default function Formulaire() {
 
   const openWidget = (
     target: "logo" | "refs",
-    urlsRef: React.MutableRefObject<string[]>,
-    setFiles: React.Dispatch<React.SetStateAction<string[]>>
+    setCount: React.Dispatch<React.SetStateAction<number>>
   ) => {
+    const folder = `clients/${f.nom.trim().replace(/\s+/g, "-").toLowerCase() || "inconnu"}`;
     // @ts-ignore
     window.cloudinary.createUploadWidget(
       {
@@ -167,14 +165,11 @@ export default function Formulaire() {
         maxFiles: target === "logo" ? 5 : 10,
         sources: ["local"],
         resourceType: "auto",
-        language: "fr",
-        text: { fr: { or: "ou", menu: { files: "Mes fichiers" } } },
+        folder,
       },
       (error: any, result: any) => {
         if (!error && result.event === "success") {
-          urlsRef.current.push(result.info.secure_url);
-          setFiles(urlsRef.current.map((u) => u.split("/").pop() ?? u));
-          s(target, urlsRef.current.join(", "));
+          setCount((n) => n + 1);
         }
       }
     ).open();
@@ -334,24 +329,18 @@ export default function Formulaire() {
                   Vos fichiers — Logo, charte & captures
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col gap-3">
-                  <p className="text-sm text-zinc-300 mb-1">
-                    Uploadez directement votre logo, charte graphique et captures (PNG, JPG, PDF, SVG).
+                  <p className="text-sm text-zinc-300">
+                    Uploadez directement votre logo, charte et captures (PNG, JPG, PDF, SVG).
                   </p>
                   <button
                     type="button"
-                    onClick={() => openWidget("logo", logoUrls, setLogoFiles)}
-                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors text-center"
+                    onClick={() => openWidget("logo", setLogoUploaded)}
+                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors"
                   >
                     + Ajouter des fichiers
                   </button>
-                  {logoFiles.length > 0 && (
-                    <ul className="text-xs text-zinc-400 space-y-1">
-                      {logoFiles.map((name, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="text-green-400">✓</span> {name}
-                        </li>
-                      ))}
-                    </ul>
+                  {logoUploaded > 0 && (
+                    <p className="text-xs text-green-400">✓ {logoUploaded} fichier{logoUploaded > 1 ? "s" : ""} uploadé{logoUploaded > 1 ? "s" : ""}</p>
                   )}
                 </div>
               </div>
@@ -409,24 +398,18 @@ export default function Formulaire() {
                   Vos references visuelles
                 </label>
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col gap-3">
-                  <p className="text-sm text-zinc-300 mb-1">
-                    Logos, captures Pinterest, images d&apos;inspiration — uploadez directement.
+                  <p className="text-sm text-zinc-300">
+                    Logos, captures Pinterest, images d&apos;inspiration.
                   </p>
                   <button
                     type="button"
-                    onClick={() => openWidget("refs", refsUrls, setRefsFiles)}
-                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors text-center"
+                    onClick={() => openWidget("refs", setRefsUploaded)}
+                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors"
                   >
                     + Ajouter des références
                   </button>
-                  {refsFiles.length > 0 && (
-                    <ul className="text-xs text-zinc-400 space-y-1">
-                      {refsFiles.map((name, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <span className="text-green-400">✓</span> {name}
-                        </li>
-                      ))}
-                    </ul>
+                  {refsUploaded > 0 && (
+                    <p className="text-xs text-green-400">✓ {refsUploaded} fichier{refsUploaded > 1 ? "s" : ""} uploadé{refsUploaded > 1 ? "s" : ""}</p>
                   )}
                 </div>
               </div>
