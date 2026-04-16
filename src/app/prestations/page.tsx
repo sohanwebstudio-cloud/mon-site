@@ -57,7 +57,7 @@ const plans = [
       { text: <><strong>Architecture web avancée</strong> (e-commerce, API, extranet...)</>, highlight: false },
       { text: <><strong>Parcours utilisateur (UX)</strong> entièrement personnalisé</>, highlight: false },
       { text: <><strong>Stratégie SEO</strong> technique et sémantique approfondie</>, highlight: false },
-      { text: <><strong>Système de design complet</strong> livré sur Figma (design tokens, composants)</>, highlight: false },
+      { text: <><strong>Système de design complet</strong> Totalement personnalisable (design tokens, composants)</>, highlight: false },
       { text: <>Intégrations <strong>sur-mesure</strong> (CRM, paiement, outils métier)</>, highlight: false },
       { text: <>Mise en <strong>conformité</strong> (sécurité & RGPD)</>, highlight: false },
       { text: <><strong>Support prioritaire</strong> 30 jours post-livraison</>, highlight: true },

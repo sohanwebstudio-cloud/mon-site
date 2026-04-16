@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const FORMSPREE_URL = "https://formspree.io/f/xzdjwgoo";
 
@@ -139,6 +139,46 @@ export default function Formulaire() {
     deadline: "",
     plus: "",
   });
+
+  const [logoFiles, setLogoFiles] = useState<string[]>([]);
+  const [refsFiles, setRefsFiles] = useState<string[]>([]);
+  const logoUrls = useRef<string[]>([]);
+  const refsUrls = useRef<string[]>([]);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://upload-widget.cloudinary.com/global/all.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => { document.body.removeChild(script); };
+  }, []);
+
+  const openWidget = (
+    target: "logo" | "refs",
+    urlsRef: React.MutableRefObject<string[]>,
+    setFiles: React.Dispatch<React.SetStateAction<string[]>>
+  ) => {
+    // @ts-ignore
+    window.cloudinary.createUploadWidget(
+      {
+        cloudName: "dhuneu9d3",
+        uploadPreset: "Sohanweb_uploads",
+        multiple: true,
+        maxFiles: target === "logo" ? 5 : 10,
+        sources: ["local"],
+        resourceType: "auto",
+        language: "fr",
+        text: { fr: { or: "ou", menu: { files: "Mes fichiers" } } },
+      },
+      (error: any, result: any) => {
+        if (!error && result.event === "success") {
+          urlsRef.current.push(result.info.secure_url);
+          setFiles(urlsRef.current.map((u) => u.split("/").pop() ?? u));
+          s(target, urlsRef.current.join(", "));
+        }
+      }
+    ).open();
+  };
 
   const s = (k: string, v: string) =>
     setF((p) => ({ ...p, [k]: v }));
@@ -293,20 +333,26 @@ export default function Formulaire() {
                 <label className={labelClass}>
                   Vos fichiers — Logo, charte & captures
                 </label>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-100 mb-3">
-                    Mettez votre logo, charte graphique et captures de votre
-                    site dans un dossier{" "}
-                    <strong className="text-white">Google Drive</strong> ou{" "}
-                    <strong className="text-white">WeTransfer</strong> et
-                    collez le lien ici.
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col gap-3">
+                  <p className="text-sm text-zinc-300 mb-1">
+                    Uploadez directement votre logo, charte graphique et captures (PNG, JPG, PDF, SVG).
                   </p>
-                  <input
-                    className={inputClass}
-                    placeholder="https://drive.google.com/drive/folders/..."
-                    value={f.logo}
-                    onChange={(e) => s("logo", e.target.value)}
-                  />
+                  <button
+                    type="button"
+                    onClick={() => openWidget("logo", logoUrls, setLogoFiles)}
+                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors text-center"
+                  >
+                    + Ajouter des fichiers
+                  </button>
+                  {logoFiles.length > 0 && (
+                    <ul className="text-xs text-zinc-400 space-y-1">
+                      {logoFiles.map((name, i) => (
+                        <li key={i} className="flex items-center gap-2">
+                          <span className="text-green-400">✓</span> {name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
               <div>
@@ -360,19 +406,28 @@ export default function Formulaire() {
               </div>
               <div>
                 <label className={labelClass}>
-                  Lien vers vos references visuelles
+                  Vos references visuelles
                 </label>
-                <div className="bg-white/5 border border-white/10 rounded-lg p-4">
-                  <p className="text-sm text-zinc-100 mb-3">
-                    Logos, sites, captures Pinterest — partagez via Google Drive
-                    ou WeTransfer
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col gap-3">
+                  <p className="text-sm text-zinc-300 mb-1">
+                    Logos, captures Pinterest, images d&apos;inspiration — uploadez directement.
                   </p>
-                  <input
-                    className={inputClass}
-                    placeholder="https://drive.google.com/drive/folders/..."
-                    value={f.refs}
-                    onChange={(e) => s("refs", e.target.value)}
-                  />
+                  <button
+                    type="button"
+                    onClick={() => openWidget("refs", refsUrls, setRefsFiles)}
+                    className="w-full border border-white/30 rounded-lg px-4 py-3 text-sm text-zinc-200 hover:border-white hover:text-white transition-colors text-center"
+                  >
+                    + Ajouter des références
+                  </button>
+                  {refsFiles.length > 0 && (
+                    <ul className="text-xs text-zinc-400 space-y-1">
+                      {refsFiles.map((name, i) => (
+                        <li key={i} className="flex items-center gap-2">
+                          <span className="text-green-400">✓</span> {name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
               <div>
@@ -500,7 +555,7 @@ export default function Formulaire() {
               >
                 {status === "sending"
                   ? "Envoi en cours..."
-                  : "Envoyer mon Passeport Graphique"}
+                  : "Envoyer mon identité Graphique"}
               </button>
               <div className="flex items-center justify-center gap-2 text-xs text-zinc-600 tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
