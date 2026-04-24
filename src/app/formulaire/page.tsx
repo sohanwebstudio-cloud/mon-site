@@ -101,7 +101,7 @@ function Card({
   return (
     <div className="mb-4">
       <div className="relative bg-white/5 border border-white/10 rounded-2xl p-8 md:p-10">
-        <div className="absolute top-6 right-7 text-xs font-bold tracking-widest text-zinc-500">
+        <div className="absolute top-6 right-7 text-sm font-bold tracking-widest text-zinc-500">
           {num}
         </div>
         <h2 className="font-notable text-lg md:text-xl text-white mb-6 pr-12 uppercase tracking-wide">
@@ -239,7 +239,7 @@ export default function Formulaire() {
   const inputClass =
     "w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-zinc-400 focus:outline-none focus:border-white transition-colors";
   const labelClass =
-    "block text-xs font-bold uppercase tracking-widest text-zinc-200 mb-2";
+    "block text-sm font-bold uppercase tracking-widest text-zinc-200 mb-2";
 
   return (
     <div className="pt-32 pb-20 px-6 min-h-screen">
@@ -340,7 +340,7 @@ export default function Formulaire() {
                     + Ajouter des fichiers
                   </button>
                   {logoUploaded > 0 && (
-                    <p className="text-xs text-green-400">✓ {logoUploaded} fichier{logoUploaded > 1 ? "s" : ""} uploadé{logoUploaded > 1 ? "s" : ""}</p>
+                    <p className="text-sm text-green-400">✓ {logoUploaded} fichier{logoUploaded > 1 ? "s" : ""} uploadé{logoUploaded > 1 ? "s" : ""}</p>
                   )}
                 </div>
               </div>
@@ -409,7 +409,7 @@ export default function Formulaire() {
                     + Ajouter des références
                   </button>
                   {refsUploaded > 0 && (
-                    <p className="text-xs text-green-400">✓ {refsUploaded} fichier{refsUploaded > 1 ? "s" : ""} uploadé{refsUploaded > 1 ? "s" : ""}</p>
+                    <p className="text-sm text-green-400">✓ {refsUploaded} fichier{refsUploaded > 1 ? "s" : ""} uploadé{refsUploaded > 1 ? "s" : ""}</p>
                   )}
                 </div>
               </div>
@@ -540,7 +540,7 @@ export default function Formulaire() {
                   ? "Envoi en cours..."
                   : "Envoyer mon identité Graphique"}
               </button>
-              <div className="flex items-center justify-center gap-2 text-xs text-zinc-600 tracking-wide">
+              <div className="flex items-center justify-center gap-2 text-sm text-zinc-600 tracking-wide">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
                 Envoye de facon securisee par email
               </div>

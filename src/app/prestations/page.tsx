@@ -130,7 +130,7 @@ function PlanCard({
       </h2>
 
       {/* Tagline */}
-      <p className="text-white italic text-sm mb-6 md:mb-8 leading-relaxed">
+      <p className="text-white italic text-base mb-6 md:mb-8 leading-relaxed">
         &ldquo;{plan.tagline}&rdquo;
       </p>
 
@@ -139,7 +139,7 @@ function PlanCard({
         {plan.features.map((feat, j) => (
           <div key={j}>
             <p
-              className={`py-2.5 md:py-3 text-[11px] md:text-xs uppercase tracking-widest leading-relaxed font-medium [&_strong]:border [&_strong]:border-white/60 [&_strong]:px-0.5 [&_strong]:rounded-[2px] [&_strong]:text-white [&_strong]:font-medium ${
+              className={`py-2.5 md:py-3 text-xs md:text-sm uppercase tracking-widest leading-relaxed font-medium [&_strong]:border [&_strong]:border-white/60 [&_strong]:px-0.5 [&_strong]:rounded-[2px] [&_strong]:text-white [&_strong]:font-medium ${
                 feat.highlight ? "text-white" : "text-white/60"
               }`}
             >
@@ -152,7 +152,7 @@ function PlanCard({
 
       {/* Price */}
       <div className="flex items-baseline justify-between mt-8 mb-6">
-        <span className="text-xs uppercase tracking-widest text-white/50 font-bold">
+        <span className="text-sm uppercase tracking-widest text-white/50 font-bold">
           Prix
         </span>
         <span className="font-notable text-2xl md:text-3xl text-white">
@@ -163,7 +163,7 @@ function PlanCard({
       {/* CTA */}
       <Link
         href={`/prestations/${plan.slug}`}
-        className="w-full py-4 border border-white rounded text-white text-[11px] md:text-xs uppercase tracking-widest font-medium text-center hover:bg-white hover:text-black transition-all duration-300 block"
+        className="w-full py-4 border border-white rounded text-white text-xs md:text-sm uppercase tracking-widest font-medium text-center hover:bg-white hover:text-black transition-all duration-300 block"
       >
         Découvrir cette formule &rarr;
       </Link>

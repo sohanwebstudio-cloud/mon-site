@@ -137,7 +137,7 @@ export default function LaVitrine() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24">
           {features.map((feature, i) => (
             <motion.div key={i} variants={fadeInUp}>
-              <p className="py-4 text-xs uppercase tracking-widest text-white font-medium">{feature}</p>
+              <p className="py-4 text-sm uppercase tracking-widest text-white font-medium">{feature}</p>
               <div className="h-px bg-white/10" />
             </motion.div>
           ))}

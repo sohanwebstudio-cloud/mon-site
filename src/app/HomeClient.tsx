@@ -107,7 +107,7 @@ export default function HomeClient() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
-            className="mt-6 text-xs uppercase tracking-[0.25em] text-zinc-100"
+            className="mt-6 text-sm uppercase tracking-[0.25em] text-zinc-100"
           >
             Agence web basée à Vannes, Bretagne — Morbihan (56)
           </motion.p>

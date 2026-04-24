@@ -63,7 +63,7 @@ export default function AProposClient() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center mb-16 md:mb-24">
           {/* Texte */}
           <div className="lg:col-span-7 flex flex-col gap-4 md:gap-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-zinc-400">
+            <p className="text-sm font-bold uppercase tracking-widest text-zinc-400">
               Designer & Développeur Web · Vannes, Bretagne
             </p>
             <h1 className="font-notable text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white uppercase leading-none">
@@ -91,7 +91,7 @@ export default function AProposClient() {
         {/* Convictions */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-16 md:mb-24 items-start">
           <div className="lg:col-span-3">
-            <p className="text-xs font-bold uppercase tracking-widest text-zinc-200 lg:sticky lg:top-32">
+            <p className="text-sm font-bold uppercase tracking-widest text-zinc-200 lg:sticky lg:top-32">
               Mes convictions
             </p>
           </div>
