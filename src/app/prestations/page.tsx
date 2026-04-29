@@ -35,7 +35,7 @@ const plans = [
     title: "La Vitrine",
     slug: "la-vitrine",
     tagline: "Une expérience immersive conçue pour captiver et convertir.",
-    price: "1 750€",
+    price: "1 200€",
     features: [
       { text: <><strong>5 pages</strong> pensées pour guider votre visiteur vers l'action</>, highlight: true },
       { text: <>Design <strong>d'interactions</strong> et animations <strong>Framer Motion</strong> (scroll, hover, transitions)</>, highlight: false },
