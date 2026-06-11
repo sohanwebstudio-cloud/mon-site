@@ -79,7 +79,7 @@ export default function Header() {
       >
         <button
           id="cal-trigger"
-          data-cal-link="sohanwebstudio-cloud/decouverte"
+          data-cal-link="sohanwebstudio/decouverte"
           data-cal-origin="https://cal.com"
           className="sr-only"
           aria-hidden
