@@ -58,11 +58,11 @@ const sections: { title: React.ReactNode; text: React.ReactNode }[] = [
   },
   {
     title: <>Vos contenus intégrés avec <span className="bg-white text-black px-1">soin</span></>,
-    text: <>Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est <B>compressée et optimisée</B> pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.{"\n\n"}Le formulaire de contact est relié à votre adresse email et testé avant livraison. Vous commencez à recevoir des demandes <B>dès la mise en ligne</B>, sans aucune configuration de votre part.</>,
+    text: <>Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est <B>compressée et optimisée</B> pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.</>
   },
   {
     title: <>3 révisions par mois — votre site reste <span className="bg-white text-black px-1">vivant</span></>,
-    text: <>Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois pendant 3 mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — <B>les premiers mois</B>, quand les retours clients arrivent et que votre offre s'affine.</>,
+    text: <>Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — <B>les premiers mois</B>, quand les retours clients arrivent et que votre offre s'affine.</>,
   },
 ];
 
