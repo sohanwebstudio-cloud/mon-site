@@ -375,7 +375,7 @@ export default function ProjetDetail({
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-              className="font-notable text-5xl md:text-7xl lg:text-8xl font-bold text-white uppercase tracking-wider leading-none text-center"
+              className="font-notable text-5xl md:text-7xl lg:text-8xl font-bold text-white uppercase tracking-wider leading-none text-center [text-shadow:1px_1px_0_black,-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black]"
             >
               {projet.title}
             </motion.h1>
