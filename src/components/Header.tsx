@@ -111,6 +111,7 @@ export default function Header() {
           <div className="flex items-center justify-end shrink-0 gap-4 md:gap-8">
             <nav className="hidden lg:flex items-center gap-10 text-sm font-medium text-white/70">
               <Link href="/projets" className="hover:text-white transition-colors duration-200">Projets</Link>
+              <Link href="/audits" className="hover:text-white transition-colors duration-200">Audits</Link>
               <Link href="/a-propos" className="hover:text-white transition-colors duration-200">À propos</Link>
               <Link href="/prestations" className="hover:text-white transition-colors duration-200">Les prestations</Link>
             </nav>
@@ -174,6 +175,9 @@ export default function Header() {
         <nav className="flex flex-col px-6">
           <Link href="/projets" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             Projets
+          </Link>
+          <Link href="/audits" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
+            Audits
           </Link>
           <Link href="/a-propos" className="text-lg font-medium text-zinc-100 hover:text-white py-4 border-b border-white/10 transition-colors duration-200" onClick={handleMobileNavClick}>
             À propos

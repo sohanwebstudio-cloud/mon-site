@@ -104,6 +104,31 @@ export default function Prestations() {
           <PlanCard key={i} plan={plan} bordered={i < plans.length - 1} />
         ))}
       </div>
+
+      {/* Garantie */}
+      <div className="px-6 max-w-[1600px] mx-auto mt-16">
+        <div className="border border-white/10 rounded-2xl px-8 py-8 md:px-12 md:py-10 flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+          <div className="flex-shrink-0 text-4xl select-none">↩</div>
+          <div className="flex-1">
+            <h3 className="font-notable text-xl md:text-2xl text-white mb-2 uppercase">
+              Satisfait ou remboursé — 30 jours
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed">
+              Si le site livré ne correspond pas à ce qui a été validé ensemble, je rembourse
+              intégralement. Sans condition, sans discussion. C&apos;est ma façon de travailler
+              depuis le début — pas un argument de vente.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link
+              href="/contact"
+              className="inline-block px-6 py-3 border border-white text-white text-xs uppercase tracking-widest font-medium rounded hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap"
+            >
+              Démarrer un projet →
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
