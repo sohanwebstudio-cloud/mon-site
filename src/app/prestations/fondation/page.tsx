@@ -50,25 +50,25 @@ const B = ({ children }: { children: React.ReactNode }) => (
 const sections: { title: React.ReactNode; text: React.ReactNode; image: string; imageAlt: string }[] = [
   {
     title: <>Votre vitrine en ligne, conçue pour <span className="bg-white text-black px-1">convaincre</span></>,
-    text: <>La formule Fondation a été pensée pour ceux qui veulent entrer dans l'ère digitale sans compromis sur la qualité. Trois pages sur mesure, c'est suffisant pour présenter votre activité avec <B>autorité</B> : une page d'accueil qui <B>capte l'attention</B> en moins de trois secondes, une page services qui détaille votre valeur ajoutée, et une page contact qui retire tout obstacle à la prise de contact.{"\n\n"}Chaque page est conçue à la main, à partir de zéro. Aucun template générique, aucun raccourci visuel. Le design reflète votre univers, vos couleurs, votre ton — et uniquement les vôtres.</>,
+    text: <>La formule Fondation a été pensée pour ceux qui veulent entrer dans l'ère digitale <B>sans compromis sur la qualité</B>. Trois pages sur mesure, c'est suffisant pour présenter votre activité avec <B>autorité</B> : une page d'accueil qui <B>capte l'attention</B> en moins de trois secondes, une page services qui détaille votre valeur ajoutée, et une page contact qui retire tout obstacle à la prise de contact.{"\n\n"}Chaque page est conçue <B>à la main, à partir de zéro</B>. Aucun template générique, aucun raccourci visuel. Le design reflète votre univers, vos couleurs, votre ton — et <B>uniquement les vôtres</B>.</>,
     image: "/IMG_2112.PNG",
     imageAlt: "Collaboration",
   },
   {
     title: <>Un SEO technique <span className="bg-white text-black px-1">soigné</span> dès le premier jour</>,
-    text: <>Être en ligne ne suffit pas : encore faut-il être trouvé. La formule Fondation intègre une configuration SEO technique complète — balises title et méta descriptions optimisées pour chaque page, sitemap XML soumis à Google Search Console, fichier robots.txt configuré, et performance technique vérifiée pour atteindre un <B>score Lighthouse supérieur à 90</B>.{"\n\n"}La mise en conformité RGPD est également incluse : mentions légales rédigées et politique de confidentialité intégrée. Votre site est <B>irréprochable</B> sur le plan légal et technique dès le premier jour.</>,
+    text: <>Être en ligne ne suffit pas : encore faut-il être <B>trouvé</B>. La formule Fondation intègre une <B>configuration SEO technique complète</B> — balises title et méta descriptions optimisées pour chaque page, sitemap XML soumis à Google Search Console, fichier robots.txt configuré, et performance technique vérifiée pour atteindre un <B>score Lighthouse supérieur à 90</B>.{"\n\n"}La mise en conformité <B>RGPD</B> est également incluse : mentions légales rédigées et politique de confidentialité intégrée. Votre site est <B>irréprochable</B> sur le plan légal et technique dès le premier jour.</>,
     image: "/IMG_2115.png",
     imageAlt: "Analyse SEO",
   },
   {
     title: <>Vos contenus intégrés avec <span className="bg-white text-black px-1">soin</span></>,
-    text: <>Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un site fait à la main. Chaque image est <B>compressée et optimisée</B> pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une hiérarchie typographique rigoureuse.</>,
+    text: <>Vous fournissez vos textes, photos et logo : je m'occupe d'intégrer chaque élément avec le niveau de soin qui caractérise un <B>site fait à la main</B>. Chaque image est <B>compressée et optimisée</B> pour le web sans perdre en qualité visuelle, chaque texte est mis en forme selon une <B>hiérarchie typographique rigoureuse</B>.</>,
     image: "/IMG_2113.JPEG",
     imageAlt: "Contenus",
   },
   {
     title: <>3 révisions par mois — votre site reste <span className="bg-white text-black px-1">vivant</span></>,
-    text: <>Un bon site n'est pas figé. Après la livraison, vous bénéficiez de 3 modifications par mois : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi post-livraison vous évite de vous retrouver seul face à votre site après la mise en ligne. Je reste votre interlocuteur direct pendant la période la plus critique — <B>les premiers mois</B>, quand les retours clients arrivent et que votre offre s'affine.</>,
+    text: <>Un bon site n'est pas figé. Après la livraison, vous bénéficiez de <B>3 modifications par mois</B> : mise à jour d'un texte, remplacement d'une photo, ajout d'une information, correction d'un détail. Chaque demande est traitée sous <B>48h ouvrées</B>, sans frais supplémentaires.{"\n\n"}Ce suivi post-livraison vous évite de vous retrouver <B>seul face à votre site</B> après la mise en ligne. Je reste votre <B>interlocuteur direct</B> pendant la période la plus critique — <B>les premiers mois</B>, quand les retours clients arrivent et que votre offre s'affine.</>,
     image: "/Gemini_Generated_Image_heamyqheamyqheam.png",
     imageAlt: "Maintenance",
   },
@@ -175,8 +175,8 @@ export default function Fondation() {
                 viewport={{ once: true, margin: "-100px" }}
                 variants={isEven ? fadeInRight : fadeInLeft}
               >
-                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white flex items-center justify-center">
-                  <Image src={section.image} alt={section.imageAlt} fill className="object-contain p-8" />
+                <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                  <Image src={section.image} alt={section.imageAlt} fill className="object-contain p-8 invert" />
                 </div>
               </motion.div>
             </div>

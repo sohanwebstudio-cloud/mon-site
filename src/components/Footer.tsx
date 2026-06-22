@@ -17,7 +17,7 @@ export default function Footer() {
             <address className="not-italic text-sm text-zinc-400 leading-relaxed">
               Agence web — Vannes, Morbihan (56)<br />
               Bretagne, France<br />
-              <a href="mailto:sohanwebstudio@gmail.com" className="hover:text-zinc-200 transition-colors">sohanwebstudio@gmail.com</a>
+              <a href="mailto:contact@sohanwebstudio.com" className="hover:text-zinc-200 transition-colors">contact@sohanwebstudio.com</a>
             </address>
           </div>
           
