@@ -8,6 +8,7 @@ import { motion, Variants } from "framer-motion";
 interface ProjetData {
   title: string;
   showHeroTitle?: boolean;
+  heroFit?: "cover" | "contain";
   metadata: { label: string; value: string }[];
   challenge: string;
   siteUrl: string;
@@ -230,8 +231,10 @@ const projets: Record<string, ProjetData> = {
     ],
     challenge:
       "Scale Finder est un outil d'apprentissage guitare complet, né d'un besoin personnel. Trouver la bonne gamme pour improviser sur un morceau relève souvent d'un long apprentissage théorique. L'enjeu : rendre cette connaissance accessible en temps réel, directement depuis le navigateur, sans installation — avec cinq modules complémentaires dans une seule application.",
-    siteUrl: "https://scale-finder.vercel.app",
+    siteUrl: "https://scale-finder-two.vercel.app/",
     heroImage: "/hero.png",
+    heroFit: "contain",
+    showHeroTitle: false,
     cookieImage: "/autre.png",
     sections: [
       {
@@ -360,7 +363,7 @@ export default function ProjetDetail({
         <motion.img
           src={projet.heroImage}
           alt={projet.title}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${projet.heroFit === "contain" ? "object-contain" : "object-cover"}`}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.4, ease: "easeOut" }}
