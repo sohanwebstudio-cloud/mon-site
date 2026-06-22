@@ -44,7 +44,7 @@ const features = [
 ];
 
 const B = ({ children }: { children: React.ReactNode }) => (
-  <strong className="text-white font-semibold">{children}</strong>
+  <strong className="bg-white text-black font-semibold px-0.5">{children}</strong>
 );
 
 const sections: { title: React.ReactNode; text: React.ReactNode; image: string; imageAlt: string }[] = [
@@ -117,11 +117,11 @@ export default function Fondation() {
         variants={staggerContainer}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-12 border-b border-white/10"
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-6">
           {metadata.map((item) => (
-            <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-white/80">{item.label} :</span>
-              <span className="text-white font-medium">{item.value}</span>
+            <motion.div key={item.label} variants={fadeInUp} className="flex flex-col gap-1">
+              <span className="text-white/60 text-xs uppercase tracking-widest font-medium">{item.label}</span>
+              <span className="text-white font-semibold text-sm">{item.value}</span>
             </motion.div>
           ))}
         </div>
@@ -192,7 +192,7 @@ export default function Fondation() {
         variants={fadeInUp}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
       >
-        <p className="text-white/60 text-sm uppercase tracking-widest mb-4">Prêt à démarrer ?</p>
+        <p className="text-white/80 text-sm uppercase tracking-widest mb-4">Prêt à démarrer ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">
           Lançons votre projet<br />Fondation.
         </h2>

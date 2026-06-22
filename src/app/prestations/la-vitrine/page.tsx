@@ -44,7 +44,7 @@ const features = [
 ];
 
 const B = ({ children }: { children: React.ReactNode }) => (
-  <strong className="text-white font-semibold">{children}</strong>
+  <strong className="bg-white text-black font-semibold px-0.5">{children}</strong>
 );
 
 const sections: { title: React.ReactNode; text: React.ReactNode }[] = [
@@ -113,11 +113,11 @@ export default function LaVitrine() {
         variants={staggerContainer}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-12 border-b border-white/10"
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-6">
           {metadata.map((item) => (
-            <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-white/60">{item.label} :</span>
-              <span className="text-white font-medium">{item.value}</span>
+            <motion.div key={item.label} variants={fadeInUp} className="flex flex-col gap-1">
+              <span className="text-white/60 text-xs uppercase tracking-widest font-medium">{item.label}</span>
+              <span className="text-white font-semibold text-sm">{item.value}</span>
             </motion.div>
           ))}
         </div>
@@ -160,7 +160,7 @@ export default function LaVitrine() {
                 <h2 className="font-notable text-3xl md:text-4xl text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-white/80 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white text-lg leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>
@@ -188,7 +188,7 @@ export default function LaVitrine() {
         variants={fadeInUp}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
       >
-        <p className="text-white/60 text-sm uppercase tracking-widest mb-4">Prêt à passer au niveau supérieur ?</p>
+        <p className="text-white/80 text-sm uppercase tracking-widest mb-4">Prêt à passer au niveau supérieur ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">
           Lançons votre projet<br />La Vitrine.
         </h2>

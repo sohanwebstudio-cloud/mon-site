@@ -87,7 +87,7 @@ export default function Audits() {
       <div className="container mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-6">
-          <span className="text-xs uppercase tracking-widest text-zinc-500 font-medium">
+          <span className="text-xs uppercase tracking-widest text-zinc-300 font-medium">
             Audits locaux — mesures réelles
           </span>
         </div>
@@ -96,7 +96,7 @@ export default function Audits() {
           <br />
           vos voisins chaque jour
         </h1>
-        <p className="text-zinc-300 text-lg max-w-2xl mb-16">
+        <p className="text-white text-lg max-w-2xl mb-16">
           Ces scores sont mesurés cette semaine sur de vrais sites d&apos;artisans du
           Morbihan. Pas des chiffres inventés. Des pertes concrètes, silencieuses,
           quotidiennes.
@@ -115,7 +115,7 @@ export default function Audits() {
                   <h2 className="font-notable text-2xl text-white mb-1">
                     {a.entreprise}
                   </h2>
-                  <div className="flex gap-4 text-xs uppercase tracking-widest text-zinc-500 font-medium">
+                  <div className="flex gap-4 text-xs uppercase tracking-widest text-zinc-300 font-medium">
                     <span>{a.secteur}</span>
                     <span>·</span>
                     <span>{a.ville}</span>
@@ -166,7 +166,7 @@ export default function Audits() {
 
               {/* Verdict */}
               <div className="border-t border-white/10 pt-6">
-                <p className="text-zinc-300 text-sm leading-relaxed mb-3">
+                <p className="text-white text-base leading-relaxed mb-3">
                   {a.verdict}
                 </p>
                 <p className="text-white text-sm font-medium">
@@ -182,7 +182,7 @@ export default function Audits() {
           <h2 className="font-notable text-3xl md:text-4xl text-white mb-4">
             Et votre site ?
           </h2>
-          <p className="text-zinc-300 text-base max-w-lg mx-auto mb-8">
+          <p className="text-white text-base max-w-lg mx-auto mb-8">
             Je mesure votre score en quelques minutes et vous envoie un rapport
             clair. Zéro jargon, zéro engagement.
           </p>
@@ -192,7 +192,7 @@ export default function Audits() {
           >
             Demander mon diagnostic gratuit →
           </Link>
-          <p className="text-zinc-600 text-xs mt-4 uppercase tracking-widest">
+          <p className="text-zinc-400 text-xs mt-4 uppercase tracking-widest">
             Satisfait ou remboursé — 30 jours sans conditions
           </p>
         </div>

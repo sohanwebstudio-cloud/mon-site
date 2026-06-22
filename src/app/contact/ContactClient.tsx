@@ -30,12 +30,12 @@ export default function ContactClient() {
     <div className="pt-32 pb-20 px-6 min-h-screen">
       <div className="container mx-auto max-w-2xl">
         <h1 className="font-notable text-4xl md:text-6xl font-bold text-white mb-6 text-center">Parlons de votre projet.</h1>
-        <p className="text-zinc-200 text-lg text-center mb-16">Vous avez une vision ? Donnons-lui vie. Contactez notre agence web à Vannes pour discuter de vos objectifs et obtenir un devis pour votre site internet. Réponse sous 24h.</p>
+        <p className="text-white text-lg text-center mb-16">Vous avez une vision ? Donnons-lui vie. Contactez notre agence web à Vannes pour discuter de vos objectifs et obtenir un devis pour votre site internet. Réponse sous 24h.</p>
 
         {status === "success" ? (
           <div className="bg-white/5 p-12 rounded-2xl border border-white/10 text-center">
             <p className="text-2xl font-semibold text-white mb-4">Message envoyé !</p>
-            <p className="text-zinc-200">Merci pour votre message. Je vous réponds sous 24h.</p>
+            <p className="text-white">Merci pour votre message. Je vous réponds sous 24h.</p>
             <button
               onClick={() => setStatus("idle")}
               className="mt-8 px-[30px] py-5 border border-white rounded text-white font-medium uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300"

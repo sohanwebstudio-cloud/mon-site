@@ -346,11 +346,11 @@ export default function ProjetDetail({
         variants={staggerContainer}
         className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-12 border-b border-white/10"
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-6">
           {projet.metadata.map((item) => (
-            <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-zinc-200">{item.label}:</span>
-              <span className="text-white">{item.value}</span>
+            <motion.div key={item.label} variants={fadeInUp} className="flex flex-col gap-1">
+              <span className="text-white/60 text-xs uppercase tracking-widest font-medium">{item.label}</span>
+              <span className="text-white font-semibold text-sm">{item.value}</span>
             </motion.div>
           ))}
         </div>
@@ -368,7 +368,7 @@ export default function ProjetDetail({
             <h2 className="font-notable text-3xl md:text-4xl font-bold text-white uppercase mb-6 leading-tight text-center lg:text-left">
               Le Challenge
             </h2>
-            <p className="text-zinc-100 text-lg leading-relaxed text-center lg:text-left">
+            <p className="text-white text-lg leading-relaxed text-center lg:text-left">
               {projet.challenge}
             </p>
             <motion.a
@@ -425,7 +425,7 @@ export default function ProjetDetail({
                 <h2 className="font-notable text-3xl md:text-4xl font-bold text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-zinc-200 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white text-lg leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>

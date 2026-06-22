@@ -78,7 +78,7 @@ export default function HomeClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-zinc-200 mb-12 max-w-2xl leading-relaxed"
+            className="text-lg md:text-xl text-white mb-12 max-w-2xl leading-relaxed"
           >
             Ne laissez plus votre image freiner votre croissance. Des sites web épurés, rapides et conçus pour générer des ventes.
           </motion.p>
@@ -136,7 +136,7 @@ export default function HomeClient() {
                     delay: index * 0.18
                   }
                 }}
-                className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-white/8 bg-white/[0.03] text-zinc-200 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm md:h-24 md:w-24"
+                className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full border border-white/8 bg-white/[0.03] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm md:h-24 md:w-24"
               >
                 <Icon className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1.7} />
               </motion.div>
@@ -163,7 +163,7 @@ export default function HomeClient() {
             ].map((feature, i) => (
               <motion.div key={i} variants={fadeInUp} className="flex flex-col">
                 <h3 className="font-notable text-2xl font-medium text-white mb-4">{feature.title}</h3>
-                <p className="text-zinc-200 leading-relaxed">{feature.desc}</p>
+                <p className="text-white leading-relaxed">{feature.desc}</p>
                 <div className="mt-8 h-px bg-gradient-to-r from-white/20 to-transparent w-full"></div>
               </motion.div>
             ))}
@@ -182,7 +182,7 @@ export default function HomeClient() {
             className="mb-20"
           >
             <h2 className="font-notable text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Mon processus</h2>
-            <p className="text-xl text-zinc-200 max-w-2xl">Une méthode claire et transparente pour amener votre projet de l&apos;idée à la réalité, sans compromis.</p>
+            <p className="text-xl text-white max-w-2xl">Une méthode claire et transparente pour amener votre projet de l&apos;idée à la réalité, sans compromis.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-24 md:gap-y-20 relative">
@@ -208,7 +208,7 @@ export default function HomeClient() {
                   <span className="flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-white text-black font-bold text-sm">{step.num}</span>
                   <h3 className="font-notable text-2xl font-semibold text-white">{step.title}</h3>
                 </div>
-                <p className="text-zinc-200 mb-6 leading-relaxed">{step.desc}</p>
+                <p className="text-white mb-6 leading-relaxed">{step.desc}</p>
                 <div className="bg-white/5 rounded-lg p-4 flex items-start gap-3 border border-white/10">
                   <CheckCircle2 className="text-zinc-500 mt-0.5 shrink-0" size={18} />
                   <p className="text-sm text-zinc-100"><span className="font-semibold text-white">Livrable :</span> {step.deliverable}</p>
@@ -236,7 +236,7 @@ export default function HomeClient() {
             ].map((stat, i) => (
               <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center">
                 <span className="text-5xl md:text-7xl font-bold text-white mb-2">{stat.value}</span>
-                <span className="text-zinc-200 font-medium tracking-wide uppercase text-sm">{stat.label}</span>
+                <span className="text-white font-medium tracking-wide uppercase text-sm">{stat.label}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -253,7 +253,7 @@ export default function HomeClient() {
            className="max-w-3xl"
         >
           <h2 className="font-notable text-4xl md:text-6xl font-bold text-white mb-10 leading-tight">
-            Votre entreprise <span className="italic text-zinc-200">mérite</span> un site à la hauteur.
+            Votre entreprise <span className="italic text-white">mérite</span> un site à la hauteur.
           </h2>
           <Link
             href="/contact"
