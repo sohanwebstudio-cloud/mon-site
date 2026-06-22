@@ -41,6 +41,12 @@ export default function Projets() {
       title: "Doma",
       desc: "Identité digitale épurée pour une agence d'architecture basée à Kyoto, axée sur la précision.",
       image: "https://framerusercontent.com/images/HraO7yjCBKF8wKtOJwECpOh5E.png"
+    },
+    {
+      id: "scale-finder",
+      title: "Scale Finder",
+      desc: "Application web d'apprentissage guitare : détection de gamme en temps réel, accordeur, exercices et théorie musicale.",
+      image: "/scale-finder-hero.jpg"
     }
   ];
 
