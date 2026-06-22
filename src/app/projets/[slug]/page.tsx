@@ -215,7 +215,7 @@ const projets: Record<string, ProjetData> = {
     nextProject: {
       slug: "scale-finder",
       title: "Scale Finder",
-      image: "/scale-finder-hero.jpg",
+      image: "/hero.png",
     },
   },
   "scale-finder": {
@@ -231,28 +231,28 @@ const projets: Record<string, ProjetData> = {
     challenge:
       "Scale Finder est un outil d'apprentissage guitare complet, né d'un besoin personnel. Trouver la bonne gamme pour improviser sur un morceau relève souvent d'un long apprentissage théorique. L'enjeu : rendre cette connaissance accessible en temps réel, directement depuis le navigateur, sans installation — avec cinq modules complémentaires dans une seule application.",
     siteUrl: "https://scale-finder.vercel.app",
-    heroImage: "/scale-finder-hero.jpg",
-    cookieImage: "/scale-finder-logo.png",
+    heroImage: "/hero.png",
+    cookieImage: "/autre.png",
     sections: [
       {
         title: "Point de départ",
         text: "L'apprentissage de la guitare butte souvent sur un obstacle invisible : savoir quelle gamme jouer pour improviser. Les outils existants supposent une connaissance théorique préalable, ou sont enfermés dans des apps mobiles lourdes. L'idée de Scale Finder est directe — écoute ce que tu joues ou ce que tu entends, et dis-moi exactement quoi faire, directement sur le manche.",
-        image: "/scale-finder-hero.jpg",
+        image: "/hero.png",
       },
       {
         title: "La solution",
         text: "Une application web full-stack Next.js 16 avec cinq modules : un Studio de détection de gamme en temps réel par microphone (Web Audio API), un accordeur chromatique au cent près, une bibliothèque d'exercices technique pour la main gauche, un cercle des quintes interactif, et une référence complète de théorie musicale. Le tout avec authentification et profils utilisateurs persistants.",
-        image: "/scale-finder-hero.jpg",
+        image: "/autre.png",
       },
       {
         title: "Mise en œuvre",
         text: "Next.js 16 App Router avec React Server Components pour les pages statiques, Client Components pour les interactions audio temps réel. La scène d'ambiance est rendue avec React Three Fiber et Three.js. L'identité visuelle s'inspire de l'esthétique risographie — palette papier/encre avec des accents rose et cyan, typographie condensée, grille rigoureuse. PostgreSQL + Prisma pour la persistance des gammes favorites et de l'historique utilisateur via Better Auth.",
-        image: "/scale-finder-hero.jpg",
+        image: "/autre2.png",
       },
       {
         title: "Résultats",
         text: "Un outil utilisé quotidiennement dans ma propre pratique musicale. Scale Finder démontre qu'une application web peut rivaliser avec une app native pour des usages audio en temps réel, tout en restant accessible sans aucune installation. Le projet a été l'occasion d'explorer Three.js, l'API Web Audio et Better Auth dans un contexte de production réel.",
-        image: "/scale-finder-hero.jpg",
+        image: "/autre3.png",
       },
     ],
     nextProject: {

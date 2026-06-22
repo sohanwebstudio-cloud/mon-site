@@ -46,7 +46,7 @@ export default function Projets() {
       id: "scale-finder",
       title: "Scale Finder",
       desc: "Application web d'apprentissage guitare : détection de gamme en temps réel, accordeur, exercices et théorie musicale.",
-      image: "/scale-finder-hero.jpg"
+      image: "/hero.png"
     }
   ];
 
