@@ -120,7 +120,7 @@ export default function Fondation() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-3 text-sm">
           {metadata.map((item) => (
             <motion.div key={item.label} variants={fadeInUp} className="flex gap-2">
-              <span className="text-white/60">{item.label} :</span>
+              <span className="text-white/80">{item.label} :</span>
               <span className="text-white font-medium">{item.value}</span>
             </motion.div>
           ))}
@@ -164,7 +164,7 @@ export default function Fondation() {
                 <h2 className="font-notable text-3xl md:text-4xl text-white uppercase mb-6 leading-tight text-center lg:text-left">
                   {section.title}
                 </h2>
-                <p className="text-white/80 text-base leading-relaxed whitespace-pre-line text-center lg:text-left">
+                <p className="text-white text-lg leading-relaxed whitespace-pre-line text-center lg:text-left">
                   {section.text}
                 </p>
               </motion.div>
