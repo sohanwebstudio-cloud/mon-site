@@ -78,7 +78,7 @@ export default function Fondation() {
   return (
     <div className="min-h-screen text-white overflow-hidden">
       {/* Hero */}
-      <div className="relative w-full h-screen overflow-hidden">
+      <div className="relative w-full h-[65vh] overflow-hidden">
         <Image src="/la-fondation.png" alt="Fondation" fill className="object-cover z-0" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-[#050505] z-10" />
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 gap-4 z-20">
@@ -94,7 +94,7 @@ export default function Fondation() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="font-notable text-5xl md:text-7xl lg:text-8xl text-white uppercase tracking-wider leading-none text-center"
+            className="font-notable text-5xl md:text-7xl lg:text-8xl text-white uppercase tracking-wider leading-none text-center [text-shadow:1px_1px_0_black,-1px_-1px_0_black,1px_-1px_0_black,-1px_1px_0_black]"
           >
             Fondation
           </motion.h1>
@@ -115,7 +115,7 @@ export default function Fondation() {
         whileInView="visible"
         viewport={{ once: true, margin: "-50px" }}
         variants={staggerContainer}
-        className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-12 border-b border-white/10"
+        className="max-w-[1600px] mx-auto px-8 md:px-20 lg:px-40 py-12 border-b border-white/10"
       >
         <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-6">
           {metadata.map((item) => (
@@ -133,7 +133,7 @@ export default function Fondation() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={staggerContainer}
-        className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-20 border-b border-white/10"
+        className="max-w-[1600px] mx-auto px-8 md:px-20 lg:px-40 py-20 border-b border-white/10"
       >
         <motion.h2 variants={fadeInUp} className="font-notable text-3xl md:text-4xl text-white uppercase mb-12 leading-tight">
           Ce qui est inclus
@@ -152,10 +152,10 @@ export default function Fondation() {
       {sections.map((section, index) => {
         const isEven = index % 2 === 0;
         return (
-          <section key={index} className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-20">
+          <section key={index} className="max-w-[1600px] mx-auto px-8 md:px-20 lg:px-40 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <motion.div
-                className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}
+                className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
@@ -169,14 +169,14 @@ export default function Fondation() {
                 </p>
               </motion.div>
               <motion.div
-                className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}
+                className={`lg:col-span-6 ${isEven ? "lg:order-2" : "lg:order-1"}`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={isEven ? fadeInRight : fadeInLeft}
               >
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                  <Image src={section.image} alt={section.imageAlt} fill className="object-contain p-8 invert" />
+                  <Image src={section.image} alt={section.imageAlt} fill className="object-contain p-2 invert" />
                 </div>
               </motion.div>
             </div>
@@ -190,7 +190,7 @@ export default function Fondation() {
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
         variants={fadeInUp}
-        className="max-w-[1600px] mx-auto px-8 md:px-16 lg:px-24 py-24 text-center border-t border-white/10"
+        className="max-w-[1600px] mx-auto px-8 md:px-20 lg:px-40 py-24 text-center border-t border-white/10"
       >
         <p className="text-white/80 text-sm uppercase tracking-widest mb-4">Prêt à démarrer ?</p>
         <h2 className="font-notable text-4xl md:text-6xl text-white uppercase mb-10 leading-tight">

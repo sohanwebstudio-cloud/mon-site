@@ -30,7 +30,12 @@ export default function ContactClient() {
     <div className="pt-32 pb-20 px-6 min-h-screen">
       <div className="container mx-auto max-w-2xl">
         <h1 className="font-notable text-4xl md:text-6xl font-bold text-white mb-6 text-center">Parlons de votre projet.</h1>
-        <p className="text-white text-lg text-center mb-16">Vous avez une vision ? Donnons-lui vie. Contactez notre agence web à Vannes pour discuter de vos objectifs et obtenir un devis pour votre site internet. Réponse sous 24h.</p>
+        <p className="text-white text-lg text-center mb-6">Vous avez une vision ? Donnons-lui vie. Contactez notre agence web à Vannes pour discuter de vos objectifs et obtenir un devis pour votre site internet. Réponse sous 24h.</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 text-sm text-white/80">
+          <a href="mailto:contact@sohanwebstudio.com" className="hover:text-white transition-colors">contact@sohanwebstudio.com</a>
+          <span className="hidden sm:block text-white/30">·</span>
+          <a href="tel:+33646151764" className="hover:text-white transition-colors">06 46 15 17 64</a>
+        </div>
 
         {status === "success" ? (
           <div className="bg-white/5 p-12 rounded-2xl border border-white/10 text-center">

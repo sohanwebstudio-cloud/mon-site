@@ -17,7 +17,8 @@ export default function Footer() {
             <address className="not-italic text-sm text-zinc-400 leading-relaxed">
               Agence web — Vannes, Morbihan (56)<br />
               Bretagne, France<br />
-              <a href="mailto:contact@sohanwebstudio.com" className="hover:text-zinc-200 transition-colors">contact@sohanwebstudio.com</a>
+              <a href="mailto:contact@sohanwebstudio.com" className="hover:text-zinc-200 transition-colors">contact@sohanwebstudio.com</a><br />
+              <a href="tel:+33646151764" className="hover:text-zinc-200 transition-colors">06 46 15 17 64</a>
             </address>
           </div>
           
