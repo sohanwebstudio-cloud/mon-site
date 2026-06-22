@@ -192,9 +192,6 @@ export default function Audits() {
           >
             Demander mon diagnostic gratuit →
           </Link>
-          <p className="text-zinc-400 text-xs mt-4 uppercase tracking-widest">
-            Satisfait ou remboursé — 30 jours sans conditions
-          </p>
         </div>
       </div>
     </div>
